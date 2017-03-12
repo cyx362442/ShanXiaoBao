@@ -73,7 +73,6 @@ public class SlidingMain extends Fragment {
 
             @Override
             public void onPageSelected(int arg0) {
-                Log.e("onPageSelected", "每次更新界面就会触发");
                 // TODO Auto-generated method stub
 
                 arg0 %= image.length;
@@ -98,9 +97,6 @@ public class SlidingMain extends Fragment {
              * */
             public void onPageScrolled(int arg0, float arg1, int arg2) {
                 // TODO Auto-generated method stub
-                Log.e("arg0当前页面，及你点击滑动的页面", ""+arg0);
-                Log.e("arg1当前页面偏移的百分比", ""+arg1);
-                Log.e("arg2当前页面偏移的像素位置", ""+arg2);
 
             }
 
