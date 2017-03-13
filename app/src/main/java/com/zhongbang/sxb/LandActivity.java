@@ -1,6 +1,8 @@
 package com.zhongbang.sxb;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
@@ -17,7 +19,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.VolleyError;
-import com.zhongbang.sxb.bean.Users;
 import com.zhongbang.sxb.httputils.DownHTTP;
 import com.zhongbang.sxb.httputils.VolleyResultListener;
 
@@ -72,11 +73,14 @@ public class LandActivity extends AppCompatActivity {
     private Runnable mRunnable;
     private int mTimes=30;
     private boolean enLand=false;
+    private SharedPreferences.Editor mEdit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_land);
+        SharedPreferences sp = getSharedPreferences("users", MODE_PRIVATE);
+        mEdit = sp.edit();
         ButterKnife.bind(this);
     }
 
@@ -126,7 +130,7 @@ public class LandActivity extends AppCompatActivity {
                 if(isNormal==true){
                     normalLand();
                 }else if(isNormal==false&&enLand==true){
-                    String phone = mEditTextPhone.getText().toString().trim();
+                    final String phone = mEditTextPhone.getText().toString().trim();
                     String code = mEditTextCode.getText().toString().trim();
                     if(TextUtils.isEmpty(phone)||TextUtils.isEmpty(code)){
                         Toast.makeText(this,"请输入电话号及验证码",Toast.LENGTH_SHORT).show();
@@ -140,7 +144,8 @@ public class LandActivity extends AppCompatActivity {
                                 if(response.contains("已审核")||response.contains("未审核")||
                                         response.contains("审核未通过")||response.contains("黑名单")){
                                     Toast.makeText(LandActivity.this,"登录成功",Toast.LENGTH_SHORT).show();
-                                    Users.load=true;
+                                    mEdit.putString("name",phone);
+                                    mEdit.commit();
                                     finish();
                                 }
                             }
@@ -154,7 +159,7 @@ public class LandActivity extends AppCompatActivity {
     }
 
     private void normalLand() {
-        String user = mEditTextUserName.getText().toString().trim();
+        final String user = mEditTextUserName.getText().toString().trim();
         String password = mEditTextPassword.getText().toString().trim();
         mMap = new HashMap<>();
         mMap.put("username",user);
@@ -167,7 +172,9 @@ public class LandActivity extends AppCompatActivity {
             public void onResponse(String response) {
                 Toast.makeText(LandActivity.this,"登录成功("+response+")",Toast.LENGTH_SHORT).show();
                 if(!response.contains("登陆失败")){
-                    Users.load=true;
+                    mEdit.putString("name",user);
+                    mEdit.putBoolean("isLoad",true);
+                    mEdit.commit();
                     finish();
                 }
             }

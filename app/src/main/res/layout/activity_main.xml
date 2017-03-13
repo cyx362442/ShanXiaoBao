@@ -83,7 +83,7 @@
                     android:layout_alignParentRight="true"
                     android:layout_marginBottom="9dp"
                     android:layout_marginRight="17dp"
-                    android:text="使用说明"
+                    android:text="区域优选"
                     android:textColor="#ffffff" />
 
                 <ImageView
@@ -119,7 +119,7 @@
                     android:layout_alignBottom="@+id/imageView_user_center"
                     android:layout_marginLeft="15dp"
                     android:layout_toRightOf="@+id/imageView_user_center"
-                    android:text="用户中心"
+                    android:text="服务中心"
                     android:textColor="#ffffff" />
             </RelativeLayout>
         </RelativeLayout>

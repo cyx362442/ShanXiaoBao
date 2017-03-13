@@ -3,6 +3,7 @@ package com.zhongbang.sxb;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AlertDialog;
@@ -15,13 +16,15 @@ import com.android.volley.VolleyError;
 import com.google.gson.Gson;
 import com.zhongbang.sxb.bean.VersionContents;
 import com.zhongbang.sxb.fragment.CenterFragment;
+import com.zhongbang.sxb.fragment.ServerCenterFragment;
 import com.zhongbang.sxb.fragment.SlidingMain;
+import com.zhongbang.sxb.fragment.ZoneSelectFragment;
 import com.zhongbang.sxb.httputils.DownHTTP;
 import com.zhongbang.sxb.httputils.VolleyResultListener;
 
 import java.util.HashMap;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private final String updateUrl="http://chinazbhf.com/app/return_Homepage.aspx";
     private final String currentVersion="1.1";
@@ -31,9 +34,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        centerFragment();
-        sliding();//滑动条自动滑动
-
+        toFragment(R.id.layout_fragment2,new CenterFragment());
+        toFragment(R.id.layout_fragment,new SlidingMain());//滑动条自动滑动
+        findViewById(R.id.layout_directions_use).setOnClickListener(this);
+        findViewById(R.id.layout_user_center).setOnClickListener(this);
     }
 
     @Override
@@ -75,18 +79,22 @@ public class MainActivity extends AppCompatActivity {
         dialog.show();
     }
 
-    private void centerFragment() {
-        FragmentManager fm = getSupportFragmentManager();
-        FragmentTransaction bt = fm.beginTransaction();
-        bt.replace(R.id.layout_fragment2, new CenterFragment());//替换布局为 片段控件功能
-        bt.commit();
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.layout_directions_use:
+                toFragment(R.id.layout_fragment2,new ZoneSelectFragment());
+                break;
+            case R.id.layout_user_center:
+                toFragment(R.id.layout_fragment2,new ServerCenterFragment());
+                break;
+        }
     }
 
-    /**滑动条功能功能*/
-    public void sliding(){
-        FragmentManager fm = getSupportFragmentManager();
-        FragmentTransaction bt = fm.beginTransaction();
-        bt.replace(R.id.layout_fragment, new SlidingMain());//替换布局为 片段控件功能
-        bt.commit();
+    private void toFragment(int id,Fragment fragment) {
+        FragmentManager manager = getSupportFragmentManager();
+        FragmentTransaction transaction = manager.beginTransaction();
+        transaction.replace(id,fragment);
+        transaction.commit();
     }
 }

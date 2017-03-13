@@ -74,13 +74,14 @@ public class LoginActivity extends AppCompatActivity {
                 break;
             case R.id.btn_login:
                 String phone = mEtPhone.getText().toString().trim();
+                String code = mEtCode.getText().toString().trim();
                 String password = mEtPassword.getText().toString().trim();
                 String passwrod_again = mEtPasswordAgain.getText().toString().trim();
                 String tuijianren = mEtTuijiantren.getText().toString().trim();
                 String idCard = mEtIdCard.getText().toString().trim();
                 String tjr= TextUtils.isEmpty(tuijianren)?"":tuijianren;
                 String id=TextUtils.isEmpty(idCard)?"":idCard;
-                if(TextUtils.isEmpty(phone)||TextUtils.isEmpty(password)||TextUtils.isEmpty(passwrod_again)){
+                if(TextUtils.isEmpty(phone)||TextUtils.isEmpty(code)||TextUtils.isEmpty(password)||TextUtils.isEmpty(passwrod_again)){
                     Toast.makeText(this,"请填写完整信息",Toast.LENGTH_SHORT).show();
                 }else if(!password.equals(passwrod_again)){
                     Toast.makeText(this,"两次密码不一致",Toast.LENGTH_SHORT).show();
@@ -89,7 +90,7 @@ public class LoginActivity extends AppCompatActivity {
                     mMap.put("type_all","zc");
                     mMap.put("phone",phone);
                     mMap.put("password",password);
-                    mMap.put("yzm","");
+                    mMap.put("yzm",code);
                     mMap.put("tjr",tjr);
                     mMap.put("idCard",id);
                     DownHTTP.postVolley(urlZheCe, mMap, new VolleyResultListener() {

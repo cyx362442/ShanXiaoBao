@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list xmlns:android="http://schemas.android.com/apk/res/android" >
+    <item android:drawable="@mipmap/backup_database_2" android:duration="200"/>
+    <item android:drawable="@mipmap/backup_database_4" android:duration="200"/>
+    <item android:drawable="@mipmap/backup_database_6" android:duration="200"/>
+    <item android:drawable="@mipmap/backup_database_8" android:duration="200"/>
+    <item android:drawable="@mipmap/backup_database_10" android:duration="200"/>
+    <item android:drawable="@mipmap/backup_database_12" android:duration="200"/>
+    <item android:drawable="@mipmap/backup_database_14" android:duration="200"/>
+    <item android:drawable="@mipmap/backup_database_16" android:duration="200"/>
+    <item android:drawable="@mipmap/backup_database_18" android:duration="200"/>
+    <item android:drawable="@mipmap/backup_database_20" android:duration="200"/>
+
+</animation-list>
