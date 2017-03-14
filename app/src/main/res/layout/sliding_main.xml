@@ -20,14 +20,14 @@
 
     <RelativeLayout
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent" >
+        android:layout_height="fill_parent">
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="30dp"
             android:layout_alignParentBottom="true"
             android:layout_alignParentLeft="true"
-            android:background="#00ffffff" >
+            android:background="#00ffffff">
 
             <ImageView
                 android:id="@+id/imageView_xia_tu3"
@@ -36,7 +36,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginRight="8dp"
                 android:layout_toLeftOf="@+id/imageView_xia_tu4"
-                android:background="@mipmap/sliding_a" />
+                android:background="@mipmap/sliding_a"/>
 
             <ImageView
                 android:id="@+id/imageView_xia_tu2"
@@ -45,7 +45,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginRight="8dp"
                 android:layout_toLeftOf="@+id/imageView_xia_tu3"
-                android:background="@mipmap/sliding_a" />
+                android:background="@mipmap/sliding_a"/>
 
             <ImageView
                 android:id="@+id/imageView_xia_tu1"
@@ -54,7 +54,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginRight="8dp"
                 android:layout_toLeftOf="@+id/imageView_xia_tu2"
-                android:background="@mipmap/sliding_b" />
+                android:background="@mipmap/sliding_b"/>
 
             <TextView
                 android:id="@+id/textView_instructions"
@@ -64,7 +64,7 @@
                 android:layout_alignTop="@+id/imageView_xia_tu1"
                 android:layout_marginLeft="16dp"
                 android:text=" "
-                android:textColor="#000000" />
+                android:textColor="#000000"/>
 
             <ImageView
                 android:id="@+id/imageView_xia_tu6"
@@ -74,7 +74,7 @@
                 android:layout_alignTop="@+id/imageView_xia_tu5"
                 android:layout_marginRight="8dp"
                 android:background="@mipmap/sliding_a"
-                android:visibility="invisible" />
+                />
 
             <ImageView
                 android:id="@+id/imageView_xia_tu4"
@@ -83,7 +83,8 @@
                 android:layout_centerVertical="true"
                 android:layout_marginRight="8dp"
                 android:layout_toLeftOf="@+id/imageView_xia_tu5"
-                android:background="@mipmap/sliding_a" />
+                android:background="@mipmap/sliding_a"/>
+
             <ImageView
                 android:id="@+id/imageView_xia_tu5"
                 android:layout_width="16dp"
@@ -91,7 +92,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginRight="8dp"
                 android:layout_toLeftOf="@+id/imageView_xia_tu6"
-                android:background="@mipmap/sliding_a" />
+                android:background="@mipmap/sliding_a"/>
         </RelativeLayout>
     </RelativeLayout>
 </FrameLayout>

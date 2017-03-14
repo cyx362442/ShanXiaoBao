@@ -25,10 +25,15 @@ public class SlidingMain extends Fragment {
     /**将所有的图片控件都添加到数组里面[成员变量]*/
     private int[] image = new int[]{R.id.imageView_xia_tu1,
             R.id.imageView_xia_tu2,R.id.imageView_xia_tu3,R.id.imageView_xia_tu4
-            ,R.id.imageView_xia_tu5};
-    /**将所有的图片资源都添加到数组里面[成员变量]*/
-    private int[] image_guanggaotu = new int[]{R.mipmap.sliding_1,R.mipmap.sliding_2,R.mipmap.sliding_3
-            ,R.mipmap.sliding_4,R.mipmap.sliding_5};
+            ,R.id.imageView_xia_tu5,R.id.imageView_xia_tu6};
+    private String[]imgUrl={
+            "http://chinazbhf.com:8081/sxb/attached/rotation/1.jpg",
+            "http://chinazbhf.com:8081/sxb/attached/rotation/2.jpg",
+            "http://chinazbhf.com:8081/sxb/attached/rotation/3.jpg",
+            "http://chinazbhf.com:8081/sxb/attached/rotation/4.jpg",
+            "http://chinazbhf.com:8081/sxb/attached/rotation/5.jpg",
+            "http://chinazbhf.com:8081/sxb/attached/rotation/6.jpg"
+            };
     /**获取布局对象*/
     private View view;
     /**线程对象*/
@@ -169,9 +174,9 @@ public class SlidingMain extends Fragment {
                     pager.setCurrentItem(currentItem + 1);//自动滑动到下一个页面
                 }
 
-                mHandler.postDelayed(this, 3000);
+                mHandler.postDelayed(this, 4000);
             }
-        }, 3000);
+        }, 1000);
 
     }
 
@@ -193,7 +198,7 @@ public class SlidingMain extends Fragment {
 
             arg0 %= image.length;
             Sliding bujuguanggaotu = new Sliding();
-            bujuguanggaotu.setImagetu(image_guanggaotu[arg0]);
+            bujuguanggaotu.setImagetu(imgUrl[arg0]);
             return bujuguanggaotu;//返回指定判断局部刷新控件并且显示出来
 //			return null;
         }
