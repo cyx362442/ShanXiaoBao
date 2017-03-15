@@ -45,6 +45,14 @@
         </activity>
         <activity android:name=".account.PersonalDataActivity">
         </activity>
+        <activity android:name=".region.CitySelect01Activity">
+        </activity>
+        <activity android:name=".account.Bank_confirmActivity">
+        </activity>
+        <activity android:name=".account.BankconfirmActivity">
+        </activity>
+        <activity android:name=".account.ID_PhotoActivity">
+        </activity>
     </application>
 
 </manifest>

@@ -12,7 +12,7 @@
         android:layout_height="50dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:background="@color/white" >
+        android:background="@color/yellowLand" >
 
         <ImageView
             android:id="@+id/imageView_return"
@@ -26,9 +26,9 @@
             android:id="@+id/textView_registered"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
+           android:layout_centerInParent="true"
             android:text="我的资料"
+            android:textColor="@color/white"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textStyle="bold" />
     </RelativeLayout>

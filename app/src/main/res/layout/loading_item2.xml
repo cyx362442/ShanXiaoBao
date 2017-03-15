@@ -6,7 +6,7 @@
     >
 
     <RelativeLayout
-        android:id="@+id/relativeLayout1"
+        android:id="@+id/rl_load"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         >

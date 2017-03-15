@@ -11,6 +11,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
@@ -57,6 +58,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onStart() {
         super.onStart();
         mPost = new HashMap<>();
+        mPost.clear();
         DownHTTP.postVolley(updateUrl, mPost, new VolleyResultListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
@@ -79,6 +81,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void Http_auit() {
         mPost=new HashMap<String, String>();
+        mPost.clear();
         mPost.put("username",mName);
         DownHTTP.postVolley(auitUrl, mPost, new VolleyResultListener() {
             @Override
@@ -86,6 +89,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
             @Override
             public void onResponse(String response) {
+                if(TextUtils.isEmpty(response)){
+                    showDialog_Audit("用户未实名认证，前去认证");
+                    return;
+                }
                 Gson gson = new Gson();
                 Audit[] audits = gson.fromJson(response, Audit[].class);
                 String audit = audits[0].audit;
@@ -101,6 +108,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void Http_order() {
         mPost=new HashMap<String, String>();
+        mPost.clear();
         mPost.put("type_all","wd_jygl_state_y_w");
         mPost.put("username_seller",mName);
         DownHTTP.postVolley(orderUrl, mPost, new VolleyResultListener() {
