@@ -52,6 +52,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         toFragment(R.id.layout_fragment,new SlidingMain());//滑动条自动滑动
         findViewById(R.id.layout_directions_use).setOnClickListener(this);
         findViewById(R.id.layout_user_center).setOnClickListener(this);
+        findViewById(R.id.imageView_middle).setOnClickListener(this);
     }
 
     @Override
@@ -185,6 +186,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.layout_user_center:
                 toFragment(R.id.layout_fragment2,new ServerCenterFragment());
+                break;
+            case R.id.imageView_middle:
+                toFragment(R.id.layout_fragment2,new CenterFragment());
                 break;
         }
     }

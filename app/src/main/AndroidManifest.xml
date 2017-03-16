@@ -53,6 +53,8 @@
         </activity>
         <activity android:name=".account.ID_PhotoActivity">
         </activity>
+        <activity android:name=".account.PhotoExampleActivity">
+        </activity>
     </application>
 
 </manifest>
