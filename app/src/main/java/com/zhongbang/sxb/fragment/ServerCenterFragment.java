@@ -10,11 +10,15 @@ import android.view.ViewGroup;
 
 import com.zhongbang.sxb.R;
 import com.zhongbang.sxb.colleciton.CollectionsActivity;
+import com.zhongbang.sxb.managercenter.MyManagerActivity;
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class ServerCenterFragment extends Fragment implements View.OnClickListener {
+
+    private Intent mIntent;
+
     public ServerCenterFragment() {
         // Required empty public constructor
     }
@@ -24,6 +28,7 @@ public class ServerCenterFragment extends Fragment implements View.OnClickListen
         // Inflate the layout for this fragment
         View inflate = inflater.inflate(R.layout.fragment_server_center, container, false);
         inflate.findViewById(R.id.img_shoukuan).setOnClickListener(this);
+        inflate.findViewById(R.id.img_guanli).setOnClickListener(this);
         return inflate;
     }
 
@@ -31,8 +36,12 @@ public class ServerCenterFragment extends Fragment implements View.OnClickListen
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.img_shoukuan:
-                Intent intent = new Intent(getActivity(), CollectionsActivity.class);
-                startActivity(intent);
+                mIntent = new Intent(getActivity(), CollectionsActivity.class);
+                startActivity(mIntent);
+                break;
+            case R.id.img_guanli:
+                mIntent = new Intent(getActivity(), MyManagerActivity.class);
+                startActivity(mIntent);
                 break;
         }
     }

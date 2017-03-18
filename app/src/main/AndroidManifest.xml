@@ -59,6 +59,16 @@
         </activity>
         <activity android:name=".colleciton.WebView_PayActivity">
         </activity>
+        <activity android:name=".managercenter.MyManagerActivity">
+        </activity>
+        <activity android:name=".managercenter.TxDetailActivity">
+        </activity>
+        <activity android:name=".managercenter.MyComeinActivity">
+        </activity>
+        <activity android:name=".managercenter.BalanceActivity">
+        </activity>
+        <activity android:name=".managercenter.ToBalanceActivity">
+        </activity>
     </application>
 
 </manifest>

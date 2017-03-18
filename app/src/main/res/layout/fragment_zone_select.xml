@@ -8,6 +8,7 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical">
                 <ImageView
+                    android:id="@+id/img_huli"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:scaleType="fitXY"
@@ -15,6 +16,7 @@
                     android:layout_marginTop="10dp"
                     android:src="@mipmap/icon_huli"/>
                 <ImageView
+                    android:id="@+id/img_siming"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -22,6 +24,7 @@
                     android:layout_marginTop="10dp"
                     android:src="@mipmap/icon_siming"/>
                 <ImageView
+                    android:id="@+id/img_jimei"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"

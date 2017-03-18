@@ -60,12 +60,12 @@ public class WebViewActivity extends AppCompatActivity implements View.OnClickLi
         mTitle = (TextView) findViewById(R.id.textView3);
         mWv = (WebView) findViewById(R.id.webView2);
         mImg_load = (ImageView) findViewById(R.id.image_load);
+        mRel_loading = (RelativeLayout) findViewById(R.id.relativeLayout1);
     }
     /**
      * 启动动画
      */
     private void startAnim() {
-        mRel_loading = (RelativeLayout) findViewById(R.id.relativeLayout1);
         mDrawable = (AnimationDrawable) mImg_load.getDrawable();
         mDrawable.start();
     }

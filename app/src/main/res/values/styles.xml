@@ -22,4 +22,15 @@
         <item name="android:layout_height">0dp</item>
         <item name="android:layout_weight">1</item>
     </style>
+    <style name="textView_manager">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">center</item>
+    </style>
+    <style name="view_manager">
+        <item name="android:layout_width">1.5dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:background">@color/black</item>
+    </style>
 </resources>

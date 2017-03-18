@@ -9,4 +9,5 @@
     <color name="gray_back">#ffeeeeee</color>
     <color name="title_color">#F35961</color>
     <color name="blue">#54abe1</color>
+    <color name="black">#000000</color>
 </resources>
