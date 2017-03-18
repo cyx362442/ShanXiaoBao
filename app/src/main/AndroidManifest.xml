@@ -55,6 +55,10 @@
         </activity>
         <activity android:name=".account.PhotoExampleActivity">
         </activity>
+        <activity android:name=".colleciton.CollectionsActivity">
+        </activity>
+        <activity android:name=".colleciton.WebView_PayActivity">
+        </activity>
     </application>
 
 </manifest>

@@ -29,6 +29,7 @@
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
             android:text="照片"
+            android:textColor="#ffffff"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textStyle="bold" />
     </RelativeLayout>

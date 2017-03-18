@@ -144,6 +144,7 @@ public class LandActivity extends AppCompatActivity {
                                 if(response.contains("已审核")||response.contains("未审核")||
                                         response.contains("审核未通过")||response.contains("黑名单")){
                                     Toast.makeText(LandActivity.this,"登录成功",Toast.LENGTH_SHORT).show();
+                                    mEdit.putBoolean("isLoad",true);
                                     mEdit.putString("name",phone);
                                     mEdit.commit();
                                     finish();

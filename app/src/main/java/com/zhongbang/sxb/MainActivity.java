@@ -44,9 +44,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        SharedPreferences sp = getSharedPreferences("users", Context.MODE_PRIVATE);
-        mIsLoad = sp.getBoolean("isLoad", false);
-        mName = sp.getString("name", "");
 
         toFragment(R.id.layout_fragment2,new CenterFragment());
         toFragment(R.id.layout_fragment,new SlidingMain());//滑动条自动滑动
@@ -58,6 +55,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onStart() {
         super.onStart();
+        SharedPreferences sp = getSharedPreferences("users", Context.MODE_PRIVATE);
+        mIsLoad = sp.getBoolean("isLoad", false);
+        mName = sp.getString("name", "");
+
         mPost = new HashMap<>();
         mPost.clear();
         DownHTTP.postVolley(updateUrl, mPost, new VolleyResultListener() {
@@ -90,10 +91,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
             @Override
             public void onResponse(String response) {
-                if(TextUtils.isEmpty(response)){
-                    showDialog_Audit("用户未实名认证，前去认证");
-                    return;
-                }
+//                if(TextUtils.isEmpty(response)){
+//                    showDialog_Audit("用户未实名认证，前去认证");
+//                    return;
+//                }
                 Gson gson = new Gson();
                 Audit[] audits = gson.fromJson(response, Audit[].class);
                 String audit = audits[0].audit;
@@ -182,9 +183,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.layout_directions_use:
+                if(mIsLoad==false){
+                    Intent intent = new Intent(this, LandActivity.class);
+                    startActivity(intent);
+                    return;
+                }
                 toFragment(R.id.layout_fragment2,new ZoneSelectFragment());
                 break;
             case R.id.layout_user_center:
+                if(mIsLoad==false){
+                    Intent intent = new Intent(this, LandActivity.class);
+                    startActivity(intent);
+                    return;
+                }
                 toFragment(R.id.layout_fragment2,new ServerCenterFragment());
                 break;
             case R.id.imageView_middle:
