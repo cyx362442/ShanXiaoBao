@@ -6,7 +6,7 @@ import android.content.SharedPreferences;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
+import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -34,7 +34,6 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class MyManagerActivity extends AppCompatActivity {
-
     @Bind(R.id.imageView_return)
     ImageView mImageViewReturn;
     @Bind(R.id.textView_title)
@@ -57,18 +56,26 @@ public class MyManagerActivity extends AppCompatActivity {
     LinearLayout mLinearLayout1;
     @Bind(R.id.listView_bill)
     ListView mListViewBill;
+    @Bind(R.id.image_load)
+    ImageView mImageLoad;
+    @Bind(R.id.textView1)
+    TextView mTextView1;
+    @Bind(R.id.rl_load)
+    RelativeLayout mRlLoad;
 
     private AnimationDrawable mDrawable;
     private RelativeLayout mRel_loading;
     private ImageView mImg_load;
-    private String urlPost=" http://chinazbhf.com:8081/SHXB/POST";
-//    private String urlPost="http://chinazbjt.cn:8080/JFBHB/POST";
+    private String urlPost = " http://chinazbhf.com:8081/SHXB/POST";
+    //    private String urlPost="http://chinazbjt.cn:8080/JFBHB/POST";
     String pager_num = "0";
     private HashMap<String, String> HashMap_post = new HashMap<String, String>();
     private ArrayList<Zhangdan> zhangdan_hold = new ArrayList<Zhangdan>();
     private LVAdapter lvAdapter;
     private String username;
     private int num = 1;
+    private Intent mIntent;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -85,17 +92,42 @@ public class MyManagerActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
                                     long arg3) {
-                Intent intent = new Intent(MyManagerActivity.this,TxDetailActivity.class);
+                Intent intent = new Intent(MyManagerActivity.this, TxDetailActivity.class);
                 intent.putExtra("dingdanhao", zhangdan_hold.get(arg2).Id);
                 startActivity(intent);
             }
         });
     }
+
     public void onStart() {
         super.onStart();
         HashMap_post.clear();// 清空
         inntdata();
     }
+
+    @OnClick({R.id.imageView_return, R.id.tv1, R.id.tv2, R.id.tv3, R.id.tv4, R.id.tv5})
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.imageView_return:
+                finish();
+                break;
+            case R.id.tv1:
+                break;
+            case R.id.tv2:
+                break;
+            case R.id.tv3:
+                mIntent = new Intent(this, MyEarnings.class);
+                startActivity(mIntent);
+                break;
+            case R.id.tv4:
+                mIntent = new Intent(this, MyEarnings.class);
+                startActivity(mIntent);
+                break;
+            case R.id.tv5:
+                break;
+        }
+    }
+
     class Zhangdan {
         String total_number2;
         String page_number;
@@ -106,21 +138,25 @@ public class MyManagerActivity extends AppCompatActivity {
         String state;
         String Id;
     }
+
     class LVAdapter extends BaseAdapter {
         @Override
         public int getCount() {
             return zhangdan_hold.size();
         }
+
         @Override
         public Object getItem(int position) {
             // TODO Auto-generated method stub
             return null;
         }
+
         @Override
         public long getItemId(int position) {
             // TODO Auto-generated method stub
             return 0;
         }
+
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
             View inflate = getLayoutInflater().inflate(R.layout.relative_bill_lv, null);
@@ -139,6 +175,7 @@ public class MyManagerActivity extends AppCompatActivity {
             return inflate;
         }
     }
+
     void inntdata() {
         zhangdan_hold.clear();//初始化之前记得清空容器
         HashMap_post.put("type_all", "wdzd");
@@ -148,19 +185,26 @@ public class MyManagerActivity extends AppCompatActivity {
         HashMap_post.put("type", pager_num);// 此时这里就是要传的网页上对应的参数String的值
         http();
     }
+
     private void http() {
-		/* 使用POST请求 */
-		startAnim();
+        /* 使用POST请求 */
+        startAnim();
         DownHTTP.postVolley(urlPost, HashMap_post, new VolleyResultListener() {
             @Override
             public void onErrorResponse(VolleyError arg0) {
                 stopAmin();
-                Toast.makeText(MyManagerActivity.this,"网络异常",Toast.LENGTH_SHORT).show();
+                Toast.makeText(MyManagerActivity.this, "网络异常", Toast.LENGTH_SHORT).show();
             }
+
             @Override
             public void onResponse(String arg0) {
                 // TsUtils.show(getActivity().getApplicationContext(), arg0);//
                 // 用这个方法弹出提示
+                if (TextUtils.isEmpty(arg0)) {
+                    Toast.makeText(MyManagerActivity.this, "无数据", Toast.LENGTH_SHORT).show();
+                    stopAmin();
+                    return;
+                }
                 Zhangdan zhangdan;
                 try {
                     JSONArray array = new JSONArray(arg0);
@@ -194,26 +238,12 @@ public class MyManagerActivity extends AppCompatActivity {
         });
     }
 
-    @OnClick({R.id.tv1, R.id.tv2, R.id.tv3, R.id.tv4, R.id.tv5})
-    public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.tv1:
-                break;
-            case R.id.tv2:
-                break;
-            case R.id.tv3:
-                break;
-            case R.id.tv4:
-                break;
-            case R.id.tv5:
-                break;
-        }
-    }
     private void startAnim() {
         mDrawable = (AnimationDrawable) mImg_load.getDrawable();
         mDrawable.start();
     }
-    private void stopAmin(){
+
+    private void stopAmin() {
         mDrawable.stop();
         mRel_loading.setVisibility(View.GONE);
     }

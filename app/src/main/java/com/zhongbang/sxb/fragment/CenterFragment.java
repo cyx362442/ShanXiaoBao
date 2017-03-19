@@ -13,7 +13,7 @@ import android.view.ViewGroup;
 
 import com.zhongbang.sxb.LandActivity;
 import com.zhongbang.sxb.R;
-import com.zhongbang.sxb.webview.WebViewActivity;
+import com.zhongbang.sxb.webview.Link2Activity;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -97,7 +97,7 @@ public class CenterFragment extends Fragment implements View.OnClickListener {
             startActivity(mIntent);
             return;
         }
-        Intent intent = new Intent(getActivity(), WebViewActivity.class);
+        Intent intent = new Intent(getActivity(), Link2Activity.class);
         intent.putExtra("title",title);
         startActivity(intent);
     }

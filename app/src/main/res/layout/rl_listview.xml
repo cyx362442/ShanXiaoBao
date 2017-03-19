@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff" >
+
+    <RelativeLayout
+        
+        android:layout_width="match_parent"
+        android:layout_height="140dp"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/checkBox1"
+        android:background="#ffffff"
+        android:clickable="true" >
+
+        <RelativeLayout
+            android:id="@+id/lv_shopmain"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:paddingTop="5dp" >
+
+            <ImageView
+                android:id="@+id/iv_shoppic"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:src="@mipmap/logo" />
+
+            <TextView
+                android:id="@+id/text_pinpai"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/iv_shoppic"
+                android:layout_marginLeft="5dp"
+                android:layout_toRightOf="@+id/iv_shoppic"
+                android:background="#EE7600"
+                android:text="品牌分销"
+                android:textColor="@color/white"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/tv_mainTitle"
+                android:layout_width="match_parent"
+                android:layout_height="16dp"
+                android:layout_alignTop="@+id/text_pinpai"
+                android:layout_marginLeft="14dp"
+                android:layout_toRightOf="@+id/text_pinpai"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:text="本木行货上岛咖啡累计额无法违堵塞无法违法未发放法"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentLeft="true"
+                android:background="#cdcdcd" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/text_pinpai"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_toRightOf="@+id/iv_shoppic"
+                android:text="售价"
+                android:textColor="#ff4500"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/tv_moneyone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/textView3"
+                android:layout_alignBottom="@+id/textView3"
+                android:layout_toRightOf="@+id/textView3"
+                android:text="￥100"
+                android:textColor="#ff4500"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/textView3"
+                android:layout_below="@+id/textView3"
+                android:layout_marginTop="5dp"
+                android:text="佣金"
+                android:textColor="#ff4500"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/tv_moneytwo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/textView4"
+                android:layout_alignBottom="@+id/textView4"
+                android:layout_alignLeft="@+id/tv_moneyone"
+                android:text="￥100"
+                android:textColor="#ff4500"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/iv_shoppic"
+                android:layout_alignLeft="@+id/textView4"
+                android:text="库存"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/tv_kucun"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/textView5"
+                android:layout_alignBottom="@+id/textView5"
+                android:layout_toRightOf="@+id/textView5"
+                android:text="12345"
+                android:textSize="12sp" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/lv_shopmain" >
+
+            <RelativeLayout
+                android:id="@+id/rl_fenxiang"
+                android:layout_width="60dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1" >
+
+                <TextView
+                    android:id="@+id/TextView03"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@+id/ImageView03"
+                    android:layout_centerHorizontal="true"
+                    android:text="分享"
+                    android:textSize="14sp" />
+
+                <ImageView
+                    android:id="@+id/ImageView03"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="5dp"
+                    android:layout_toLeftOf="@+id/TextView03"
+                    android:src="@mipmap/wdgl_icon_fx" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_bianji"
+                android:layout_width="60dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1" >
+
+                <TextView
+                    android:id="@+id/TextView02"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@+id/ImageView02"
+                    android:layout_centerHorizontal="true"
+                    android:text="编辑"
+                    android:textSize="14sp" />
+
+                <ImageView
+                    android:id="@+id/ImageView02"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="5dp"
+                    android:layout_toLeftOf="@+id/TextView02"
+                    android:src="@mipmap/wdgl_icon_bj" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_xiajia"
+                android:layout_width="60dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1" >
+
+                <ImageView
+                    android:id="@+id/image_xiajia"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@+id/tv_xiajia"
+                    android:src="@mipmap/wdgl_icon_xj" />
+
+                <TextView
+                    android:id="@+id/tv_xiajia"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/image_xiajia"
+                    android:layout_centerHorizontal="true"
+                    android:text="下架"
+                    android:textSize="14sp" />
+            </RelativeLayout>
+        </LinearLayout>
+    </RelativeLayout>
+
+    <CheckBox
+        android:id="@+id/checkBox1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="14dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginRight="5dp"
+        android:visibility="gone"
+        android:background="@drawable/checkbox_management"
+        android:button="@null" />
+
+</RelativeLayout>

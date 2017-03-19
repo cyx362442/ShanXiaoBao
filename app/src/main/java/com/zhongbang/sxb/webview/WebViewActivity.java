@@ -8,6 +8,7 @@ import android.icu.util.Calendar;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.webkit.WebChromeClient;
 import android.webkit.WebResourceRequest;
@@ -87,6 +88,7 @@ public class WebViewActivity extends AppCompatActivity implements View.OnClickLi
         mWv.setWebChromeClient(new MyWebChromeClient());// 监测webview加载情况
         mWv.setWebViewClient(new MyWebViewClient()); // 设置Web视图,只能在设定的布局范围内跳转
         mWv.loadUrl(url+mName);// 加载url网站
+        Log.e("=====",url+mName);
     }
 
     @Override

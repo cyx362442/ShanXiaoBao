@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rel_setphoto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:visibility="visible"
+    >
+
+    <RelativeLayout
+        android:id="@+id/rl_setpic_kong"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#60000000" >
+
+        <LinearLayout
+            android:id="@+id/LinearLayout1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:background="#f0f0f0"
+            android:orientation="vertical"
+            android:padding="10dp" >
+
+            <Button
+                android:id="@+id/bt_paizhao"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="#00ced1"
+                android:text="拍　照"
+                android:textColor="#fff"
+                android:onClick="Onclick_paizhao"
+                android:textSize="22sp" />
+
+            <Button
+                android:id="@+id/bt_xiangce"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="5dp"
+                android:background="#cd2626"
+                android:text="从相册导入"
+                android:textColor="#fff"
+                android:onClick="Onclick_xiangce"
+                android:textSize="22sp" />
+
+            <Button
+                android:id="@+id/btn_delete"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="5dp"
+                android:background="#06f"
+                android:onClick="Onclick_delete"
+                android:text="删　除"
+                android:textColor="#000"
+                android:visibility="gone"
+                android:textSize="22sp" />
+
+            <Button
+                android:id="@+id/bt_cancel"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="5dp"
+                android:background="#fff"
+                android:text="取　消"
+                android:onClick="Onclick_cancel"
+                android:textColor="#000"
+                android:textSize="22sp" />
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>

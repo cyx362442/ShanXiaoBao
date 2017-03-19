@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.zhongbang.sxb.R;
+import com.zhongbang.sxb.webview.Link2Activity;
 import com.zhongbang.sxb.webview.WebViewActivity;
 
 import butterknife.Bind;
@@ -62,7 +63,7 @@ public class ZoneSelectFragment extends Fragment {
     }
 
     private void toWebView(String contents) {
-        Intent intent = new Intent(getActivity(), WebViewActivity.class);
+        Intent intent = new Intent(getActivity(), Link2Activity.class);
         intent.putExtra("title",contents);
         startActivity(intent);
     }

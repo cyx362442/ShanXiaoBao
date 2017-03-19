@@ -69,6 +69,18 @@
         </activity>
         <activity android:name=".managercenter.ToBalanceActivity">
         </activity>
+        <activity android:name=".managercenter.MyEarnings">
+        </activity>
+        <activity android:name=".webview.LinkActivity">
+        </activity>
+        <activity android:name=".webview.Link2Activity">
+        </activity>
+        <activity android:name=".webview.SmallshopActivity">
+        </activity>
+        <activity android:name=".webview.ShareActivity">
+        </activity>
+        <activity android:name=".View.ShareActivity">
+        </activity>
     </application>
 
 </manifest>

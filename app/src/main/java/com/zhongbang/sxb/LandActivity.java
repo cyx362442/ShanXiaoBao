@@ -171,7 +171,7 @@ public class LandActivity extends AppCompatActivity {
             }
             @Override
             public void onResponse(String response) {
-                Toast.makeText(LandActivity.this,"登录成功("+response+")",Toast.LENGTH_SHORT).show();
+                Toast.makeText(LandActivity.this,response,Toast.LENGTH_SHORT).show();
                 if(!response.contains("登陆失败")){
                     mEdit.putString("name",user);
                     mEdit.putBoolean("isLoad",true);
