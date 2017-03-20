@@ -11,8 +11,6 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -21,13 +19,13 @@ import com.google.gson.Gson;
 import com.zhongbang.sxb.account.PersonalDataActivity;
 import com.zhongbang.sxb.bean.Audit;
 import com.zhongbang.sxb.bean.VersionContents;
+import com.zhongbang.sxb.colleciton.WebView_PayActivity;
 import com.zhongbang.sxb.fragment.CenterFragment;
 import com.zhongbang.sxb.fragment.ServerCenterFragment;
 import com.zhongbang.sxb.fragment.SlidingMain;
 import com.zhongbang.sxb.fragment.ZoneSelectFragment;
 import com.zhongbang.sxb.httputils.DownHTTP;
 import com.zhongbang.sxb.httputils.VolleyResultListener;
-import com.zhongbang.sxb.webview.WebViewActivity;
 
 import java.util.HashMap;
 
@@ -36,6 +34,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private final String updateUrl="http://chinazbhf.com/app/return_Homepage.aspx";
     private final String auitUrl="http://chinazbhf.com/app/user_data_return.aspx";
     private final String orderUrl="http://chinazbhf.com:8081/SHXBWD/wd.do";
+    private final String orderUrl_search="http://chinazbhf.com:8081/SHXBWD/mjgl/sy.html?id=";
+
     private final String currentVersion="1.00";
     private HashMap<String, String> mPost;
     private boolean mIsLoad;
@@ -134,8 +134,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 .setPositiveButton("前往", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        Intent intent = new Intent(MainActivity.this, WebViewActivity.class);
+                        Intent intent = new Intent(MainActivity.this, WebView_PayActivity.class);
                         intent.putExtra("title","订单查询");
+                        intent.putExtra("url",orderUrl_search+mName);
                         startActivity(intent);
                     }
                 })

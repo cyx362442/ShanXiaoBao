@@ -1,11 +1,7 @@
 package com.zhongbang.sxb.webview;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.graphics.drawable.AnimationDrawable;
-import android.icu.util.Calendar;
-import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -21,26 +17,22 @@ import android.widget.TextView;
 
 import com.zhongbang.sxb.R;
 
-import static java.security.AccessController.getContext;
-
 public class WebViewActivity extends AppCompatActivity implements View.OnClickListener {
-    private final String url="http://chinazbhf.com:8081/SHXBWD/mjgl/sy.html?id=";
-
     private AnimationDrawable mDrawable;
     private RelativeLayout mRel_loading;
     private TextView mText;
     private WebView mWv;
     private TextView mTitle;
     private ImageView mImg_load;
-    private String mName;
+    private String mUrl;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_web_view);
-        SharedPreferences sp = getSharedPreferences("users", Context.MODE_PRIVATE);
-        mName = sp.getString("name", "");
         Intent intent = getIntent();
         String title = intent.getStringExtra("title");
+        mUrl = intent.getStringExtra("url");
         initContents();
         mTitle.setText(title);
         findViewById(R.id.imageView1).setOnClickListener(this);
@@ -87,8 +79,8 @@ public class WebViewActivity extends AppCompatActivity implements View.OnClickLi
         settings.setLoadWithOverviewMode(true);
         mWv.setWebChromeClient(new MyWebChromeClient());// 监测webview加载情况
         mWv.setWebViewClient(new MyWebViewClient()); // 设置Web视图,只能在设定的布局范围内跳转
-        mWv.loadUrl(url+mName);// 加载url网站
-        Log.e("=====",url+mName);
+        mWv.loadUrl(mUrl);// 加载url网站
+        Log.e("=====",mUrl);
     }
 
     @Override
@@ -107,7 +99,7 @@ public class WebViewActivity extends AppCompatActivity implements View.OnClickLi
     class MyWebViewClient extends WebViewClient {
         @Override
         public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
-            view.loadUrl(url+mName);
+            view.loadUrl(mUrl);
             return super.shouldOverrideUrlLoading(view, request);
         }
     }

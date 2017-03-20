@@ -7,6 +7,7 @@ import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -19,6 +20,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.VolleyError;
+import com.zhongbang.sxb.HelperActivity;
 import com.zhongbang.sxb.R;
 import com.zhongbang.sxb.httputils.DownHTTP;
 import com.zhongbang.sxb.httputils.VolleyResultListener;
@@ -123,7 +125,9 @@ public class MyManagerActivity extends AppCompatActivity {
                 mIntent = new Intent(this, MyEarnings.class);
                 startActivity(mIntent);
                 break;
-            case R.id.tv5:
+            case R.id.tv5://帮助
+                mIntent=new Intent(this, HelperActivity.class);
+                startActivity(mIntent);
                 break;
         }
     }
