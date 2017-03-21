@@ -19,6 +19,7 @@ import com.google.gson.Gson;
 import com.zhongbang.sxb.account.PersonalDataActivity;
 import com.zhongbang.sxb.bean.Audit;
 import com.zhongbang.sxb.bean.VersionContents;
+import com.zhongbang.sxb.colleciton.Users;
 import com.zhongbang.sxb.colleciton.WebView_PayActivity;
 import com.zhongbang.sxb.fragment.CenterFragment;
 import com.zhongbang.sxb.fragment.ServerCenterFragment;
@@ -40,6 +41,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private HashMap<String, String> mPost;
     private boolean mIsLoad;
     private String mName;
+    private SharedPreferences mSp;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,9 +58,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onStart() {
         super.onStart();
-        SharedPreferences sp = getSharedPreferences("users", Context.MODE_PRIVATE);
-        mIsLoad = sp.getBoolean("isLoad", false);
-        mName = sp.getString("name", "");
+        mSp = getSharedPreferences("users", Context.MODE_PRIVATE);
+        mIsLoad = mSp.getBoolean("isLoad", false);
+        mName = mSp.getString("name", "");
 
         mPost = new HashMap<>();
         mPost.clear();
@@ -98,6 +101,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Gson gson = new Gson();
                 Audit[] audits = gson.fromJson(response, Audit[].class);
                 String audit = audits[0].audit;
+                Users.userType=audits[0].user_types;
                 if(!audit.equals("已审核")&&!audit.equals("上传认证")){
                     String msg= audit.equals("未审核")?"用户未实名认证，前去认证":"审核未通过，请填写真实资料";
                     showDialog_Audit(msg);

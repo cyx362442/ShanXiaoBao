@@ -65,6 +65,7 @@
                 android:textColor="@color/white"
                 android:textSize="20dp"/>
             <TextView
+                android:id="@+id/totalInComimg"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -102,6 +103,7 @@
                 style="@style/textView_earning"
                 android:text="昨日新增总收益"/>
             <TextView
+                android:id="@+id/lastIncoming"
                 style="@style/textview_earning_red"/>
         </LinearLayout>
         <View
@@ -115,9 +117,11 @@
             <LinearLayout
                style="@style/linearLayout_earning">
                 <TextView
+                    android:id="@+id/tv1"
                     style="@style/textView_earning"
                     android:text="昨日区域商城总消费额"/>
                 <TextView
+                    android:id="@+id/lastTotalPay1"
                     style="@style/textview_earning_red"/>
             </LinearLayout>
             <View
@@ -129,9 +133,11 @@
             <LinearLayout
                 style="@style/linearLayout_earning">
                 <TextView
+                    android:id="@+id/tv2"
                     style="@style/textView_earning"
                     android:text="昨日区域商城消费收益"/>
                 <TextView
+                    android:id="@+id/lastInComing1"
                     style="@style/textview_earning_red"/>
             </LinearLayout>
         </LinearLayout>
@@ -148,9 +154,11 @@
             <LinearLayout
                 style="@style/linearLayout_earning">
                 <TextView
+                    android:id="@+id/tv3"
                     style="@style/textView_earning"
                     android:text="昨日区域机器人系统总消费额"/>
                 <TextView
+                    android:id="@+id/lastTotalPay2"
                     style="@style/textview_earning_red"/>
             </LinearLayout>
             <View
@@ -162,9 +170,11 @@
             <LinearLayout
                 style="@style/linearLayout_earning">
                 <TextView
+                    android:id="@+id/tv4"
                     style="@style/textView_earning"
                     android:text="昨日区域机器人系统消费收益"/>
                 <TextView
+                    android:id="@+id/lastInComing2"
                     style="@style/textview_earning_red"/>
             </LinearLayout>
         </LinearLayout>
@@ -175,15 +185,18 @@
             android:layout_marginRight="10dp"
             android:background="@color/black"></View>
         <LinearLayout
+            android:id="@+id/linearLayout3"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1">
             <LinearLayout
                 style="@style/linearLayout_earning">
                 <TextView
+                    android:id="@+id/tv5"
                     style="@style/textView_earning"
                     android:text="昨日区域总书款金额"/>
                 <TextView
+                    android:id="@+id/lastTotalPay3"
                     style="@style/textview_earning_red"/>
             </LinearLayout>
             <View
@@ -195,11 +208,17 @@
             <LinearLayout
                 style="@style/linearLayout_earning">
                 <TextView
+                    android:id="@+id/tv6"
                     style="@style/textView_earning"
                     android:text="昨日区域收款收益"/>
                 <TextView
+                    android:id="@+id/lastInComing3"
                     style="@style/textview_earning_red"/>
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
+    <include layout="@layout/loading_item2"
+             android:layout_height="match_parent"
+             android:layout_width="match_parent"
+        />
 </RelativeLayout>

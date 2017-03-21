@@ -8,6 +8,8 @@ import android.content.Intent;
 import com.zhongbang.sxb.account.PersonalDataActivity;
 
 public class Users {
+	public static String userType;
+
 	public static void setDialog(final Context context){
 		new AlertDialog.Builder(context)
 		   .setMessage("您的资料还未完善，无法进行支付，请先完善个人资料！")

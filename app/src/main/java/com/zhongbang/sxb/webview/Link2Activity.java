@@ -35,7 +35,7 @@ import com.zhongbang.sxb.R;
 import com.zhongbang.sxb.View.ShareActivity;
 
 public class Link2Activity extends AppCompatActivity implements View.OnClickListener {
-    private String urlWeb="http://huanqiusc.com:8081/HQWSWD/mjgl/sy.html?id=";
+    private String urlWeb="http://chinazbhf.com:8081/SHXBWD/mjgl/sy.html?id=";
 
     private ValueCallback<Uri> mUploadMessage;
     private final static int FILECHOOSER_RESULTCODE = 1;

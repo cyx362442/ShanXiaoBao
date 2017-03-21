@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import com.android.volley.VolleyError;
 import com.zhongbang.sxb.R;
+import com.zhongbang.sxb.colleciton.WebView_PayActivity;
 import com.zhongbang.sxb.httputils.DownHTTP;
 import com.zhongbang.sxb.httputils.VolleyResultListener;
 import com.zhongbang.sxb.webview.WebViewActivity;
@@ -195,7 +196,7 @@ public class MyComeinActivity extends AppCompatActivity implements View.OnClickL
         Intent intent = new Intent();
         intent.putExtra("url", url);// 注意传过去的是String类型那么那边取值就必须根据类型来取值
         intent.putExtra("title", title);// 注意传过去的是String类型那么那边取值就必须根据类型来取值
-        intent.setClass(this, WebViewActivity.class);// 这里如果放在事件被点击为什么会报错
+        intent.setClass(this, WebView_PayActivity.class);// 这里如果放在事件被点击为什么会报错
         startActivity(intent);
     }
 }

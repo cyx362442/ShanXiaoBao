@@ -22,8 +22,10 @@ import android.widget.Toast;
 import com.android.volley.VolleyError;
 import com.zhongbang.sxb.HelperActivity;
 import com.zhongbang.sxb.R;
+import com.zhongbang.sxb.colleciton.WebView_PayActivity;
 import com.zhongbang.sxb.httputils.DownHTTP;
 import com.zhongbang.sxb.httputils.VolleyResultListener;
+import com.zhongbang.sxb.webview.WebViewActivity;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -36,6 +38,8 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class MyManagerActivity extends AppCompatActivity {
+    private final String urlSub="http://chinazbhf.com/tg/customer_list.html?id=";
+
     @Bind(R.id.imageView_return)
     ImageView mImageViewReturn;
     @Bind(R.id.textView_title)
@@ -116,13 +120,17 @@ public class MyManagerActivity extends AppCompatActivity {
             case R.id.tv1:
                 break;
             case R.id.tv2:
+                mIntent=new Intent(this,MyComeinActivity.class);
+                startActivity(mIntent);
                 break;
             case R.id.tv3:
                 mIntent = new Intent(this, MyEarnings.class);
                 startActivity(mIntent);
                 break;
             case R.id.tv4:
-                mIntent = new Intent(this, MyEarnings.class);
+                mIntent=new Intent(this, WebView_PayActivity.class);
+                mIntent.putExtra("url",urlSub+username);
+                mIntent.putExtra("chanel","下属查询");
                 startActivity(mIntent);
                 break;
             case R.id.tv5://帮助
@@ -202,7 +210,6 @@ public class MyManagerActivity extends AppCompatActivity {
 
             @Override
             public void onResponse(String arg0) {
-                // TsUtils.show(getActivity().getApplicationContext(), arg0);//
                 // 用这个方法弹出提示
                 if (TextUtils.isEmpty(arg0)) {
                     Toast.makeText(MyManagerActivity.this, "无数据", Toast.LENGTH_SHORT).show();
