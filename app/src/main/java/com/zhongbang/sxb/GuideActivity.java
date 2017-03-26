@@ -9,6 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import com.zhongbang.sxb.application.ExitAppliation;
+
 import java.util.ArrayList;
 
 public class GuideActivity extends AppCompatActivity {
@@ -18,9 +20,31 @@ public class GuideActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_guide);
+        ExitAppliation.getInstance().addActivity(this);
         ViewPager grvViewpager = (ViewPager) findViewById(R.id.viewpager);
         initViewPager();//初始化viewpager
         grvViewpager.setAdapter(new MyPagerAdapter());
+        grvViewpager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+                if (position == imgList.size() - 1) {
+                    try {
+                        Thread.sleep(2000);
+                        Intent intent = new Intent(GuideActivity.this, MainActivity.class);
+                        startActivity(intent);
+                        finish();
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+            @Override
+            public void onPageSelected(int position) {
+            }
+            @Override
+            public void onPageScrollStateChanged(int state) {
+            }
+        });
     }
     private void initViewPager() {
         for(int i=0;i<imgRes.length;i++){
@@ -37,10 +61,19 @@ public class GuideActivity extends AppCompatActivity {
                         finish();
                     }
                 });
+//                try {
+//                    Thread.sleep(2000);
+//                    Intent intent = new Intent(GuideActivity.this,MainActivity.class);
+//                    startActivity(intent);
+//                    finish();
+//                } catch (InterruptedException e) {
+//                    e.printStackTrace();
+//                }
             }
             imgList.add(inflate);
         }
     }
+
     class MyPagerAdapter extends PagerAdapter {
         @Override
         public Object instantiateItem(ViewGroup container, int position) {

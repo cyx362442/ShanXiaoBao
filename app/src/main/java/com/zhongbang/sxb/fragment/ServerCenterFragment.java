@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import com.zhongbang.sxb.R;
 import com.zhongbang.sxb.colleciton.CollectionsActivity;
 import com.zhongbang.sxb.managercenter.MyManagerActivity;
+import com.zhongbang.sxb.webview.Link2Activity;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -29,12 +30,20 @@ public class ServerCenterFragment extends Fragment implements View.OnClickListen
         View inflate = inflater.inflate(R.layout.fragment_server_center, container, false);
         inflate.findViewById(R.id.img_shoukuan).setOnClickListener(this);
         inflate.findViewById(R.id.img_guanli).setOnClickListener(this);
+        inflate.findViewById(R.id.img_jiqiren).setOnClickListener(this);
         return inflate;
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()){
+            case R.id.img_jiqiren:
+                String webUrl="http://chinazbhf.com:8081/SHXBWD/mj/goods.html?category=robot";
+                Intent intent = new Intent(getActivity(), Link2Activity.class);
+                intent.putExtra("title","机器人系统");
+                intent.putExtra("url",webUrl);
+                startActivity(intent);
+                break;
             case R.id.img_shoukuan:
                 mIntent = new Intent(getActivity(), CollectionsActivity.class);
                 startActivity(mIntent);

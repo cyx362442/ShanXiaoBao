@@ -8,6 +8,7 @@ import android.widget.Toast;
 
 import com.android.volley.VolleyError;
 import com.zhongbang.sxb.R;
+import com.zhongbang.sxb.application.ExitAppliation;
 import com.zhongbang.sxb.httputils.DownHTTP;
 import com.zhongbang.sxb.httputils.VolleyResultListener;
 
@@ -36,6 +37,7 @@ public class TxDetailActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tx_detail);
+        ExitAppliation.getInstance().addActivity(this);
         zhangdanhao = getIntent().getStringExtra("dingdanhao");
         initUI();
     }

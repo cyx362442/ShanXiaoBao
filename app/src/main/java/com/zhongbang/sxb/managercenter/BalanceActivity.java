@@ -19,6 +19,7 @@ import android.widget.Toast;
 
 import com.android.volley.VolleyError;
 import com.zhongbang.sxb.R;
+import com.zhongbang.sxb.application.ExitAppliation;
 import com.zhongbang.sxb.colleciton.Users;
 import com.zhongbang.sxb.httputils.DownHTTP;
 import com.zhongbang.sxb.httputils.VolleyResultListener;
@@ -53,6 +54,7 @@ public class BalanceActivity extends AppCompatActivity implements View.OnClickLi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_balance);
+        ExitAppliation.getInstance().addActivity(this);
         SharedPreferences sp = getSharedPreferences("users", Context.MODE_PRIVATE);
         mPhone = sp.getString("name", "");
         mChanel = getIntent().getStringExtra("channel");

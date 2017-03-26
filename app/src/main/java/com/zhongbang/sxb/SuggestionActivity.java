@@ -9,6 +9,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.android.volley.VolleyError;
+import com.zhongbang.sxb.application.ExitAppliation;
 import com.zhongbang.sxb.httputils.DownHTTP;
 import com.zhongbang.sxb.httputils.VolleyResultListener;
 
@@ -26,6 +27,7 @@ public class SuggestionActivity extends AppCompatActivity implements View.OnClic
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_suggestion);
+        ExitAppliation.getInstance().addActivity(this);
         SharedPreferences sp = getSharedPreferences("users", Context.MODE_PRIVATE);
         mPhone = sp.getString("name", "");
         edittext = (EditText) findViewById(R.id.editText1);

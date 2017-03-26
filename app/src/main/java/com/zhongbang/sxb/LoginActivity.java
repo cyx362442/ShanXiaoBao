@@ -12,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.android.volley.VolleyError;
+import com.zhongbang.sxb.application.ExitAppliation;
 import com.zhongbang.sxb.httputils.DownHTTP;
 import com.zhongbang.sxb.httputils.VolleyResultListener;
 
@@ -53,6 +54,7 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        ExitAppliation.getInstance().addActivity(this);
         ButterKnife.bind(this);
     }
 

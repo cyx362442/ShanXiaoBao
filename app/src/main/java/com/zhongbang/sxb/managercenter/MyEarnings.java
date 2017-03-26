@@ -16,6 +16,7 @@ import android.widget.Toast;
 import com.android.volley.VolleyError;
 import com.google.gson.Gson;
 import com.zhongbang.sxb.R;
+import com.zhongbang.sxb.application.ExitAppliation;
 import com.zhongbang.sxb.bean.Earning01;
 import com.zhongbang.sxb.bean.Earning02;
 import com.zhongbang.sxb.colleciton.Users;
@@ -87,6 +88,7 @@ public class MyEarnings extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_earnings);
+        ExitAppliation.getInstance().addActivity(this);
         ButterKnife.bind(this);
         SharedPreferences sp = getSharedPreferences("users", Context.MODE_PRIVATE);
         username = sp.getString("name", "");

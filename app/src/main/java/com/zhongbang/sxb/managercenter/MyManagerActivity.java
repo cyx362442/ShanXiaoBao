@@ -22,6 +22,7 @@ import android.widget.Toast;
 import com.android.volley.VolleyError;
 import com.zhongbang.sxb.HelperActivity;
 import com.zhongbang.sxb.R;
+import com.zhongbang.sxb.application.ExitAppliation;
 import com.zhongbang.sxb.colleciton.WebView_PayActivity;
 import com.zhongbang.sxb.httputils.DownHTTP;
 import com.zhongbang.sxb.httputils.VolleyResultListener;
@@ -38,7 +39,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class MyManagerActivity extends AppCompatActivity {
-    private final String urlSub="http://chinazbhf.com/tg/customer_list.html?id=";
+    private final String urlSub="http://chinazbhf.com/tg/customer.html?id=";
 
     @Bind(R.id.imageView_return)
     ImageView mImageViewReturn;
@@ -86,6 +87,7 @@ public class MyManagerActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_manager);
+        ExitAppliation.getInstance().addActivity(this);
         ButterKnife.bind(this);
         SharedPreferences sp = getSharedPreferences("users", Context.MODE_PRIVATE);
         username = sp.getString("name", "");

@@ -13,9 +13,11 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.VolleyError;
 import com.google.gson.Gson;
+import com.zhongbang.sxb.application.ExitAppliation;
 import com.zhongbang.sxb.bean.VersionContents;
 import com.zhongbang.sxb.colleciton.WebView_PayActivity;
 import com.zhongbang.sxb.httputils.DownHTTP;
@@ -111,9 +113,10 @@ public class HelperActivity extends AppCompatActivity {
                     public void onResponse(String response) {
                         Gson gson = new Gson();
                         VersionContents[] contentses = gson.fromJson(response, VersionContents[].class);
-                        Log.e("=====",contentses[0].system_version);
                         if(!contentses[0].system_version.equals(currentVersion)){
                             showDialog_version(contentses[0].author_contact);
+                        }else{
+                            Toast.makeText(HelperActivity.this,"当前己是最新版本",Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
@@ -123,6 +126,7 @@ public class HelperActivity extends AppCompatActivity {
                 SharedPreferences.Editor edit = sp.edit();
                 edit.clear();
                 edit.commit();
+                ExitAppliation.getInstance().exit();
                 finish();
                 break;
         }

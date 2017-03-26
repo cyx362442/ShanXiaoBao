@@ -97,6 +97,7 @@ public class PersonalDataActivity extends AppCompatActivity implements View.OnCl
         mTextView_city2 = (TextView) findViewById(R.id.textView_city2);
         mEditText_name = (EditText) findViewById(R.id.editText_name);
         mEditText_phone = (EditText) findViewById(R.id.editText_phone);
+        mEditText_phone.setText(phone);
         mEditText_merchants_name = (EditText) findViewById(R.id.editText_merchants_name);
         mRelativeLayout_region = (RelativeLayout) findViewById(R.id.relativeLayout_region);
         mImage_confirm = (ImageView) findViewById(R.id.image_confirm);

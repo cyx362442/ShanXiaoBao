@@ -23,6 +23,7 @@ import com.android.volley.VolleyError;
 import com.zhongbang.sxb.R;
 import com.zhongbang.sxb.account.InterfaceUrl;
 import com.zhongbang.sxb.account.PersonalDataActivity;
+import com.zhongbang.sxb.application.ExitAppliation;
 import com.zhongbang.sxb.httputils.DownHTTP;
 import com.zhongbang.sxb.httputils.VolleyResultListener;
 
@@ -48,6 +49,7 @@ public class CollectionsActivity extends AppCompatActivity implements View.OnCli
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_collections);
+        ExitAppliation.getInstance().addActivity(this);
         SharedPreferences sp = getSharedPreferences("users", Context.MODE_PRIVATE);
         phone = sp.getString("name", "");
         mLoading = (RelativeLayout)findViewById(R.id.rl_load);//动画

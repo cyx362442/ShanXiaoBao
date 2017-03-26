@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import com.android.volley.VolleyError;
 import com.zhongbang.sxb.R;
+import com.zhongbang.sxb.application.ExitAppliation;
 import com.zhongbang.sxb.colleciton.WebView_PayActivity;
 import com.zhongbang.sxb.httputils.DownHTTP;
 import com.zhongbang.sxb.httputils.VolleyResultListener;
@@ -58,6 +59,7 @@ public class MyComeinActivity extends AppCompatActivity implements View.OnClickL
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_comein);
+        ExitAppliation.getInstance().addActivity(this);
         SharedPreferences sp = getSharedPreferences("users", Context.MODE_PRIVATE);
         mPhone = sp.getString("name", "");
         startAnim();

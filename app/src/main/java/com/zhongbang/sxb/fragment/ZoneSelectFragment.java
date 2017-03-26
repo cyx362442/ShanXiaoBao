@@ -9,7 +9,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import com.zhongbang.sxb.LoginActivity;
 import com.zhongbang.sxb.R;
+import com.zhongbang.sxb.baidu.LocationActivity;
 import com.zhongbang.sxb.webview.Link2Activity;
 import com.zhongbang.sxb.webview.WebViewActivity;
 
@@ -51,7 +53,9 @@ public class ZoneSelectFragment extends Fragment {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.img_huli:
-                toWebView("湖里区");
+//                toWebView("湖里区");
+                Intent intent = new Intent(getActivity(), LocationActivity.class);
+                startActivity(intent);
                 break;
             case R.id.img_siming:
                 toWebView("思明区");

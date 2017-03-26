@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.zhongbang.sxb.R;
+import com.zhongbang.sxb.application.ExitAppliation;
 
 public class ToBalanceActivity extends AppCompatActivity {
 
@@ -13,6 +14,7 @@ public class ToBalanceActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_to_balance);
+        ExitAppliation.getInstance().addActivity(this);
         TextView text1 = (TextView) findViewById(R.id.text_1);
         TextView text2 = (TextView) findViewById(R.id.text_2);
         String st1 = getIntent().getStringExtra("V1");

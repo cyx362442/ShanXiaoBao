@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 
 import com.zhongbang.sxb.LandActivity;
 import com.zhongbang.sxb.R;
+import com.zhongbang.sxb.colleciton.WebView_PayActivity;
 import com.zhongbang.sxb.webview.Link2Activity;
 
 /**
@@ -20,6 +21,7 @@ import com.zhongbang.sxb.webview.Link2Activity;
  */
 public class CenterFragment extends Fragment implements View.OnClickListener {
     private final String url="http://chinazbhf.com:8081/SHXBWD/mjgl/sy.html?id=";
+    private String webUrl;
 
     private Intent mIntent;
     private boolean mIsLoad;
@@ -62,43 +64,53 @@ public class CenterFragment extends Fragment implements View.OnClickListener {
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.ll_01:
-                toWebView("特色美食");
+                webUrl="http://chinazbhf.com:8081/SHXBWD/mj/goods.html?category=food";
+                toWebView("特色美食",webUrl);
                 break;
             case R.id.ll_02:
-                toWebView("体闲娱乐");
+                webUrl="http://chinazbhf.com:8081/SHXBWD/mj/goods.html?category=play";
+                toWebView("体闲娱乐",webUrl);
                 break;
             case R.id.ll_03:
-                toWebView("美容养生");
+                webUrl="http://chinazbhf.com:8081/SHXBWD/mj/goods.html?category=beauty";
+                toWebView("美容养生",webUrl);
                 break;
             case R.id.ll_04:
-                toWebView("游艇出海");
+                webUrl="http://chinazbhf.com:8081/SHXBWD/mj/goods.html?category=yacht";
+                toWebView("游艇出海",webUrl);
                 break;
             case R.id.ll_05:
-                toWebView("精品购物");
+                webUrl="http://chinazbhf.com:8081/SHXBWD/mj/goods.html?category=shop";
+                toWebView("精品购物",webUrl);
                 break;
             case R.id.ll_06:
-                toWebView("旅游度假");
+                webUrl="http://chinazbhf.com:8081/SHXBWD/mj/goods.html?category=travel";
+                toWebView("旅游度假",webUrl);
                 break;
             case R.id.ll_07:
-                toWebView("机票酒店");
+                webUrl="http://chinazbhf.com:8081/SHXBWD/mj/goods.html?category=fly";
+                toWebView("机票酒店",webUrl);
                 break;
             case R.id.ll_08:
-                toWebView("珠宝饰品");
+                webUrl="http://chinazbhf.com:8081/SHXBWD/mj/goods.html?category=jewel";
+                toWebView("珠宝饰品",webUrl);
                 break;
             case R.id.ll_09:
-                toWebView("建材家居");
+                webUrl="http://chinazbhf.com:8081/SHXBWD/mj/goods.html?category=house";
+                toWebView("建材家居",webUrl);
                 break;
         }
     }
 
-    private void toWebView(String title) {
+    private void toWebView(String title,String webUrl) {
         if(mIsLoad==false){
             mIntent = new Intent(getActivity(), LandActivity.class);
             startActivity(mIntent);
             return;
         }
-        Intent intent = new Intent(getActivity(), Link2Activity.class);
+        Intent intent = new Intent(getActivity(), WebView_PayActivity.class);
         intent.putExtra("title",title);
+        intent.putExtra("url",webUrl);
         startActivity(intent);
     }
 }

@@ -19,6 +19,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.VolleyError;
+import com.zhongbang.sxb.application.ExitAppliation;
 import com.zhongbang.sxb.httputils.DownHTTP;
 import com.zhongbang.sxb.httputils.VolleyResultListener;
 
@@ -79,6 +80,7 @@ public class LandActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_land);
+        ExitAppliation.getInstance().addActivity(this);
         SharedPreferences sp = getSharedPreferences("users", MODE_PRIVATE);
         mEdit = sp.edit();
         ButterKnife.bind(this);
@@ -122,6 +124,10 @@ public class LandActivity extends AppCompatActivity {
                 break;
             case R.id.btn_getcode:
                 String trim = mEditTextPhone.getText().toString().trim();
+                if(TextUtils.isEmpty(trim)){
+                    Toast.makeText(this,"请输入手机号",Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 mBtnGetcode.setEnabled(false);
                 startTime();
                 Http_code(trim);
@@ -155,6 +161,8 @@ public class LandActivity extends AppCompatActivity {
                 }
                 break;
             case R.id.tv_forget:
+                mIntent=new Intent(this,ForgetPasswordActivity.class);
+                startActivity(mIntent);
                 break;
         }
     }

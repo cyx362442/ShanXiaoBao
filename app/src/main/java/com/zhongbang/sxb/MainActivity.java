@@ -11,12 +11,14 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
 import com.android.volley.VolleyError;
 import com.google.gson.Gson;
 import com.zhongbang.sxb.account.PersonalDataActivity;
+import com.zhongbang.sxb.application.ExitAppliation;
 import com.zhongbang.sxb.bean.Audit;
 import com.zhongbang.sxb.bean.VersionContents;
 import com.zhongbang.sxb.colleciton.Users;
@@ -47,6 +49,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ExitAppliation.getInstance().addActivity(this);
 
         toFragment(R.id.layout_fragment2,new CenterFragment());
         toFragment(R.id.layout_fragment,new SlidingMain());//滑动条自动滑动
@@ -102,6 +105,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Audit[] audits = gson.fromJson(response, Audit[].class);
                 String audit = audits[0].audit;
                 Users.userType=audits[0].user_types;
+                Log.e("======",audit);
                 if(!audit.equals("已审核")&&!audit.equals("上传认证")){
                     String msg= audit.equals("未审核")?"用户未实名认证，前去认证":"审核未通过，请填写真实资料";
                     showDialog_Audit(msg);
