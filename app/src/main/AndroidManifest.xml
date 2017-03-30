@@ -19,6 +19,7 @@
     <uses-permission android:name="android.permission.CHANGE_CONFIGURATION"/>
     <uses-permission android:name="android.permission.CALL_PHONE"/>
     <uses-permission android:name="android.intent.action.DIAL"/>
+
     <application
         android:name=".application.MyApplication"
         android:allowBackup="true"
@@ -27,15 +28,36 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        <activity
+            android:name="com.tencent.tauth.AuthActivity"
+            android:launchMode="singleTask"
+            android:noHistory="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <!-- 下面这个XXXXXXXXXXXX就是你申请腾讯开发平台所给的app key -->
+                <data android:scheme="1106056864" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.tencent.connect.common.AssistActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="behind"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+        </activity>
+
         <service
             android:name="com.baidu.location.f"
             android:enabled="true"
-            android:process=":remote" >
+            android:process=":remote">
             <intent-filter>
-                <action android:name="com.baidu.location.service_v2.2" >
+                <action android:name="com.baidu.location.service_v2.2">
                 </action>
             </intent-filter>
         </service>
+
         <activity android:name=".GuideActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -89,9 +111,14 @@
         </activity>
         <activity android:name=".baidu.LocationActivity">
         </activity>
+
         <meta-data
             android:name="com.baidu.lbsapi.API_KEY"
-            android:value="FrIdHRAp4S5zwrz0x4VwW5kbOz3DQIgx" />  <!--http://lbsyun.baidu.com/apiconsole/key-->
+            android:value="FrIdHRAp4S5zwrz0x4VwW5kbOz3DQIgx"/> <!-- http://lbsyun.baidu.com/apiconsole/key -->
+        <activity android:name=".ShareActivity">
+        </activity>
+        <activity android:name=".Share3Activity">
+        </activity>
     </application>
 
 </manifest>

@@ -38,9 +38,6 @@ public class PersonalDataActivity extends AppCompatActivity implements View.OnCl
     /** 注册 */
     HashMap<String, String> HashMap_post1 = new HashMap<String, String>();
 
-    private String phone2 = "";// 手机号码[账号]-phone
-    private String password2 = "";// 密码-password
-
     private String phone;
     private EditText mEditText_QQ;//QQ号
     private TextView mText_confirm;//未认证！(完善个人资料)

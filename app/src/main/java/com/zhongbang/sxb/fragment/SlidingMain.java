@@ -1,8 +1,11 @@
 package com.zhongbang.sxb.fragment;
 
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -13,27 +16,40 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import com.squareup.picasso.Picasso;
 import com.zhongbang.sxb.R;
 import com.zhongbang.sxb.adapter.Sliding;
+
+import static com.tencent.open.utils.Global.getSharedPreferences;
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class SlidingMain extends Fragment {
+    private final String url="http://chinazbhf.com/img/";
+    private String phone;
+    private String[]imgUrl;
+
     /**ViewPager控件对象 [成员变量]注意引包import android.support.v4.view.ViewPager*/
     private ViewPager pager;
     /**将所有的图片控件都添加到数组里面[成员变量]*/
     private int[] image = new int[]{R.id.imageView_xia_tu1,
             R.id.imageView_xia_tu2,R.id.imageView_xia_tu3,R.id.imageView_xia_tu4
             ,R.id.imageView_xia_tu5,R.id.imageView_xia_tu6};
-    private String[]imgUrl={
-            "http://chinazbhf.com:8081/sxb/attached/rotation/1.jpg",
-            "http://chinazbhf.com:8081/sxb/attached/rotation/2.jpg",
-            "http://chinazbhf.com:8081/sxb/attached/rotation/3.jpg",
-            "http://chinazbhf.com:8081/sxb/attached/rotation/4.jpg",
-            "http://chinazbhf.com:8081/sxb/attached/rotation/5.jpg",
-            "http://chinazbhf.com:8081/sxb/attached/rotation/6.jpg"
-            };
+//    private String[]imgUrl={
+////            "http://chinazbhf.com:8081/sxb/attached/rotation/1.jpg",
+////            "http://chinazbjt.com:8081/sxb/attached/rotation/2.jpg",
+////            "http://chinazbjt.com:8081/sxb/attached/rotation/3.jpg",
+////            "http://chinazbjt.com:8081/sxb/attached/rotation/4.jpg",
+////            "http://chinazbjt.com:8081/sxb/attached/rotation/5.jpg",
+////            "http://chinazbjt.com:8081/sxb/attached/rotation/6.jpg"
+//            url+phone+"1.jpg",
+//            url+phone+"2.jpg",
+//            url+phone+"3.jpg",
+//            url+phone+"4.jpg",
+//            url+phone+"5.jpg",
+//            url+phone+"6.jpg",
+//            };
     /**获取布局对象*/
     private View view;
     /**线程对象*/
@@ -44,6 +60,21 @@ public class SlidingMain extends Fragment {
     private Runnable Runnable;
 
     @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        SharedPreferences sp = getContext().getSharedPreferences("users", Context.MODE_PRIVATE);
+        phone = sp.getString("name", "");
+        imgUrl=new String[]{
+               url+phone+"1.jpg",
+                url+phone+"2.jpg",
+                url+phone+"3.jpg",
+                url+phone+"4.jpg",
+                url+phone+"5.jpg",
+                url+phone+"6.jpg"
+        };
+    }
+
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // TODO Auto-generated method stub
@@ -51,16 +82,13 @@ public class SlidingMain extends Fragment {
         //设置要得到的布局对象/这里的R.layout.guanggao指的就是你步骤一新建的布局对象xml名
         view = inflater.inflate(R.layout.sliding_main, null);
         pager = (ViewPager) view.findViewById(R.id.guanggao_viewpager);//实例化ViewPager控件
-
         //起始位置
         pager.setCurrentItem(100000 / 2);
-
         for (int i = 0; i < image.length; i++) {
             ImageView image_tu = (ImageView) view.findViewById(image[i]);//实例化所有控件对象
             if(i==0){
                 image_tu.setBackgroundResource(R.mipmap.sliding_b);//设置背景图片
             }
-
         }
 
         //设置Viewpager缓存的个数，左右各缓存2个,当页面左右滑动同时可以显示两个页面的部分显示
@@ -79,18 +107,15 @@ public class SlidingMain extends Fragment {
             @Override
             public void onPageSelected(int arg0) {
                 // TODO Auto-generated method stub
-
                 arg0 %= image.length;
                 //通过循环判断操作控件对象
                 for (int i = 0; i < image.length; i++) {
                     ImageView image_tu = (ImageView) view.findViewById(image[i]);//实例化控件对象
                     if(arg0==i){
                         image_tu.setBackgroundResource(R.mipmap.sliding_b);//设置背景图片
-
                     }else{
                         image_tu.setBackgroundResource(R.mipmap.sliding_a);//设置背景图片
                     }
-
                 }
             }
 

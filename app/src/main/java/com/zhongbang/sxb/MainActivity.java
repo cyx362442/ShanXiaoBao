@@ -23,14 +23,21 @@ import com.zhongbang.sxb.bean.Audit;
 import com.zhongbang.sxb.bean.VersionContents;
 import com.zhongbang.sxb.colleciton.Users;
 import com.zhongbang.sxb.colleciton.WebView_PayActivity;
+import com.zhongbang.sxb.event.MessageEvent;
 import com.zhongbang.sxb.fragment.CenterFragment;
 import com.zhongbang.sxb.fragment.ServerCenterFragment;
 import com.zhongbang.sxb.fragment.SlidingMain;
+import com.zhongbang.sxb.fragment.TopFragment;
 import com.zhongbang.sxb.fragment.ZoneSelectFragment;
 import com.zhongbang.sxb.httputils.DownHTTP;
 import com.zhongbang.sxb.httputils.VolleyResultListener;
+import com.zhongbang.sxb.region.City;
 
 import java.util.HashMap;
+
+import de.greenrobot.event.EventBus;
+import de.greenrobot.event.Subscribe;
+import de.greenrobot.event.ThreadMode;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -44,6 +51,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private boolean mIsLoad;
     private String mName;
     private SharedPreferences mSp;
+    private String city="";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,11 +59,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
         ExitAppliation.getInstance().addActivity(this);
 
-        toFragment(R.id.layout_fragment2,new CenterFragment());
-        toFragment(R.id.layout_fragment,new SlidingMain());//滑动条自动滑动
+        toFragment("",R.id.frame_top,new TopFragment());
+        toFragment("",R.id.layout_fragment2,new CenterFragment());
+        toFragment("",R.id.layout_fragment,new SlidingMain());//滑动条自动滑动
         findViewById(R.id.layout_directions_use).setOnClickListener(this);
         findViewById(R.id.layout_user_center).setOnClickListener(this);
         findViewById(R.id.imageView_middle).setOnClickListener(this);
+    }
+
+    @Subscribe(threadMode = ThreadMode.MainThread)
+    public void getEventBusMsg(MessageEvent event){
+        city=event.msg;
+        if(event.from.equals("back")){
+            toFragment(city,R.id.layout_fragment2,new ZoneSelectFragment());
+        }
     }
 
     @Override
@@ -197,7 +214,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     startActivity(intent);
                     return;
                 }
-                toFragment(R.id.layout_fragment2,new ZoneSelectFragment());
+                toFragment(city,R.id.layout_fragment2,new ZoneSelectFragment());
                 break;
             case R.id.layout_user_center:
                 if(mIsLoad==false){
@@ -205,17 +222,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     startActivity(intent);
                     return;
                 }
-                toFragment(R.id.layout_fragment2,new ServerCenterFragment());
+                toFragment("",R.id.layout_fragment2,new ServerCenterFragment());
                 break;
             case R.id.imageView_middle:
-                toFragment(R.id.layout_fragment2,new CenterFragment());
+                toFragment("",R.id.layout_fragment2,new CenterFragment());
                 break;
         }
     }
 
-    private void toFragment(int id,Fragment fragment) {
+    private void toFragment(String msg,int id,Fragment fragment) {
         FragmentManager manager = getSupportFragmentManager();
         FragmentTransaction transaction = manager.beginTransaction();
+        Bundle bundle = new Bundle();
+        bundle.putString("city", msg);
+        fragment.setArguments(bundle);
+
         transaction.replace(id,fragment);
         transaction.commit();
     }
