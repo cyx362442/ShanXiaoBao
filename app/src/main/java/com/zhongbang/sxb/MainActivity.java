@@ -122,7 +122,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Audit[] audits = gson.fromJson(response, Audit[].class);
                 String audit = audits[0].audit;
                 Users.userType=audits[0].user_types;
-                Log.e("======",audit);
                 if(!audit.equals("已审核")&&!audit.equals("上传认证")){
                     String msg= audit.equals("未审核")?"用户未实名认证，前去认证":"审核未通过，请填写真实资料";
                     showDialog_Audit(msg);
@@ -199,7 +198,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         dialog.dismiss();
                     }
                 })
-                .setNegativeButton("取消",null)
+                .setNegativeButton("取消", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        if(mIsLoad==true){
+                            Http_auit();
+                        }
+                    }
+                })
                 .setMessage("检测到新版本，请及时更新")
                 .create();
         dialog.show();

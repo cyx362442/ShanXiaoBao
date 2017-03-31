@@ -1,10 +1,10 @@
 package com.zhongbang.sxb.bean;
 
 /**
- * Created by Administrator on 2017-03-21.
+ * Created by Administrator on 2017-03-31.
  */
 
-public class Earning02 {
+public class Earning03 {
 
     /**
      * monthIncoming : 0.00

@@ -32,6 +32,16 @@
             android:textColor="@color/white"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textStyle="bold" />
+        <TextView
+            android:id="@+id/tv_personData"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="个人资料"
+            android:textColor="@color/white"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"/>
     </RelativeLayout>
     <RelativeLayout
         android:id="@+id/relativeLayout2"

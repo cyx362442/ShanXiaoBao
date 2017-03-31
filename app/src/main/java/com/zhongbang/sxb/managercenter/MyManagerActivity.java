@@ -7,7 +7,6 @@ import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -22,11 +21,11 @@ import android.widget.Toast;
 import com.android.volley.VolleyError;
 import com.zhongbang.sxb.HelperActivity;
 import com.zhongbang.sxb.R;
+import com.zhongbang.sxb.account.PersonalDataActivity;
 import com.zhongbang.sxb.application.ExitAppliation;
 import com.zhongbang.sxb.colleciton.WebView_PayActivity;
 import com.zhongbang.sxb.httputils.DownHTTP;
 import com.zhongbang.sxb.httputils.VolleyResultListener;
-import com.zhongbang.sxb.webview.WebViewActivity;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -39,7 +38,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class MyManagerActivity extends AppCompatActivity {
-    private final String urlSub="http://chinazbhf.com/tg/customer.html?id=";
+    private final String urlSub = "http://chinazbhf.com/tg/customer.html?id=";
 
     @Bind(R.id.imageView_return)
     ImageView mImageViewReturn;
@@ -69,6 +68,8 @@ public class MyManagerActivity extends AppCompatActivity {
     TextView mTextView1;
     @Bind(R.id.rl_load)
     RelativeLayout mRlLoad;
+    @Bind(R.id.tv_personData)
+    TextView mTvPersonData;
 
     private AnimationDrawable mDrawable;
     private RelativeLayout mRel_loading;
@@ -113,7 +114,7 @@ public class MyManagerActivity extends AppCompatActivity {
         inntdata();
     }
 
-    @OnClick({R.id.imageView_return, R.id.tv1, R.id.tv2, R.id.tv3, R.id.tv4, R.id.tv5})
+    @OnClick({R.id.imageView_return, R.id.tv1, R.id.tv2, R.id.tv3, R.id.tv4, R.id.tv5,R.id.tv_personData})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.imageView_return:
@@ -122,7 +123,7 @@ public class MyManagerActivity extends AppCompatActivity {
             case R.id.tv1:
                 break;
             case R.id.tv2:
-                mIntent=new Intent(this,MyComeinActivity.class);
+                mIntent = new Intent(this, MyComeinActivity.class);
                 startActivity(mIntent);
                 break;
             case R.id.tv3:
@@ -130,13 +131,17 @@ public class MyManagerActivity extends AppCompatActivity {
                 startActivity(mIntent);
                 break;
             case R.id.tv4:
-                mIntent=new Intent(this, WebView_PayActivity.class);
-                mIntent.putExtra("url",urlSub+username);
-                mIntent.putExtra("chanel","下属查询");
+                mIntent = new Intent(this, WebView_PayActivity.class);
+                mIntent.putExtra("url", urlSub + username);
+                mIntent.putExtra("chanel", "下属查询");
                 startActivity(mIntent);
                 break;
             case R.id.tv5://帮助
-                mIntent=new Intent(this, HelperActivity.class);
+                mIntent = new Intent(this, HelperActivity.class);
+                startActivity(mIntent);
+                break;
+            case R.id.tv_personData:
+                mIntent=new Intent(this, PersonalDataActivity.class);
                 startActivity(mIntent);
                 break;
         }

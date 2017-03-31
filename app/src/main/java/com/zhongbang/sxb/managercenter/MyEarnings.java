@@ -19,6 +19,7 @@ import com.zhongbang.sxb.R;
 import com.zhongbang.sxb.application.ExitAppliation;
 import com.zhongbang.sxb.bean.Earning01;
 import com.zhongbang.sxb.bean.Earning02;
+import com.zhongbang.sxb.bean.Earning03;
 import com.zhongbang.sxb.colleciton.Users;
 import com.zhongbang.sxb.httputils.DownHTTP;
 import com.zhongbang.sxb.httputils.VolleyResultListener;
@@ -115,16 +116,17 @@ public class MyEarnings extends AppCompatActivity {
                 public void onResponse(String response) {
                     Gson gson = new Gson();
                     Earning01 earning01 = gson.fromJson(response, Earning01.class);
-                    mTotalInComimg.setText(earning01.totalIncoming);
-                    mLastIncoming.setText(earning01.lastIncoming);
-                    mLastInComing1.setText(earning01.lastIncoming);
-                    mLastInComing2.setText(earning01.lastIncoming);
-                    mLastTotalPay1.setText(earning01.lastPay);
-                    mLastTotalPay2.setText(earning01.lastPay);
+                    mTotalInComimg.setText(earning01.getMonthIncoming());
+                    mLastIncoming.setText(earning01.getLastIncoming());
+                    mLastInComing1.setText(earning01.getLastMallIncoming());
+                    mLastInComing2.setText(earning01.getLastRebotIncoming());
+                    mLastTotalPay1.setText(earning01.getLastMallPay());
+                    mLastTotalPay2.setText(earning01.getLastRebotPay());
                     stopAmin();
                 }
             });
-        }else if(Users.userType.equals("普通经销商")){
+        }
+        else if(Users.userType.equals("普通经销商")){
             mLinearLayout3.setVisibility(View.VISIBLE);
             mTv1.setText("昨日商城总消费额");
             mTv2.setText("昨日商城消费收益");
@@ -142,14 +144,14 @@ public class MyEarnings extends AppCompatActivity {
                 public void onResponse(String response) {
                     Gson gson = new Gson();
                     Earning02 earning02 = gson.fromJson(response, Earning02.class);
-                    mTotalInComimg.setText(earning02.totalIncoming);
-                    mLastIncoming.setText(earning02.lastIncoming);
-                    mLastInComing1.setText(earning02.lastIncoming1);
-                    mLastInComing2.setText(earning02.lastIncoming2);
-                    mLastInComing3.setText(earning02.lastIncoming3);
-                    mLastTotalPay1.setText(earning02.lastTotalPay1);
-                    mLastTotalPay2.setText(earning02.lastTotalPay2);
-                    mLastInComing3.setText(earning02.lastTotalPay3);
+                    mTotalInComimg.setText(earning02.getMonthIncoming());
+                    mLastIncoming.setText(earning02.getLastIncoming());
+                    mLastInComing1.setText(earning02.getLastMallIncoming());
+                    mLastInComing2.setText(earning02.getLastRebotIncoming());
+                    mLastTotalPay1.setText(earning02.getLastMallPay());
+                    mLastTotalPay2.setText(earning02.getLastRebotPay());
+                    mLastTotalPay3.setText(earning02.getLastReceipt());
+                    mLastInComing3.setText(earning02.getLastReceiptIncoming());
                     stopAmin();
                 }
             });
@@ -170,15 +172,15 @@ public class MyEarnings extends AppCompatActivity {
                 @Override
                 public void onResponse(String response) {
                     Gson gson = new Gson();
-                    Earning02 earning02 = gson.fromJson(response, Earning02.class);
-                    mTotalInComimg.setText(earning02.totalIncoming);
-                    mLastIncoming.setText(earning02.lastIncoming);
-                    mLastInComing1.setText(earning02.lastIncoming1);
-                    mLastInComing2.setText(earning02.lastIncoming2);
-                    mLastInComing3.setText(earning02.lastIncoming3);
-                    mLastTotalPay1.setText(earning02.lastTotalPay1);
-                    mLastTotalPay2.setText(earning02.lastTotalPay2);
-                    mLastInComing3.setText(earning02.lastTotalPay3);
+                    Earning03 earning03 = gson.fromJson(response, Earning03.class);
+                    mTotalInComimg.setText(earning03.getMonthIncoming());
+                    mLastIncoming.setText(earning03.getLastIncoming());
+                    mLastInComing1.setText(earning03.getLastMallIncoming());
+                    mLastInComing2.setText(earning03.getLastRebotIncoming());
+                    mLastTotalPay1.setText(earning03.getLastMallPay());
+                    mLastTotalPay2.setText(earning03.getLastRebotPay());
+                    mLastTotalPay3.setText(earning03.getLastReceipt());
+                    mLastInComing3.setText(earning03.getLastReceiptIncoming());
                     stopAmin();
                 }
             });
