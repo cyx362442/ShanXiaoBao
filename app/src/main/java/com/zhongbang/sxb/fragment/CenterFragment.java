@@ -15,6 +15,7 @@ import com.zhongbang.sxb.LandActivity;
 import com.zhongbang.sxb.R;
 import com.zhongbang.sxb.colleciton.WebView_PayActivity;
 import com.zhongbang.sxb.webview.Link2Activity;
+import com.zhongbang.sxb.webview.WebViewActivity;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -108,7 +109,7 @@ public class CenterFragment extends Fragment implements View.OnClickListener {
             startActivity(mIntent);
             return;
         }
-        Intent intent = new Intent(getActivity(), WebView_PayActivity.class);
+        Intent intent = new Intent(getActivity(), WebViewActivity.class);
         intent.putExtra("title",title);
         intent.putExtra("url",webUrl);
         startActivity(intent);

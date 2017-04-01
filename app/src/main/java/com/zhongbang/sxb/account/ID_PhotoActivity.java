@@ -385,29 +385,24 @@ public class ID_PhotoActivity extends AppCompatActivity implements View.OnClickL
 
     private void getUpLoad() {
         DownHTTP.getVolley("http://chinazbjt.cn/app/photo_chuan.aspx?type=upload&username="+mPhone, new VolleyResultListener() {
-
             @Override
             public void onErrorResponse(VolleyError arg0) {
                 // TODO Auto-generated method stub
             }
-
             @Override
             public void onResponse(String arg0) {
                 // TODO Auto-generated method stub
                 sendMessage();
             }
-
             private void sendMessage() {
                 hashMap_send.clear();
                 hashMap_send.put("appName", "积付宝花呗");
                 hashMap_send.put("username", mPhone);
                 DownHTTP.postVolley("http://chinazbjt.cn:8080/jifubaohuabei/app/system/send-sms.app", hashMap_send, new VolleyResultListener() {
-
                     @Override
                     public void onErrorResponse(VolleyError arg0) {
                         // TODO Auto-generated method stub
                     }
-
                     @Override
                     public void onResponse(String arg0) {
                         // TODO Auto-generated method stub

@@ -75,6 +75,8 @@ public class PersonalDataActivity extends AppCompatActivity implements View.OnCl
                     province=city2.getProvince();
                     city=city2.getCity();
                     mTextView_city2.setText(province +"-"+ city);
+                    String district = city2.getDistrict();
+                    mEditText_merchants_name.setText(district);
                 }
             }
         } catch (Exception e) {
@@ -217,7 +219,7 @@ public class PersonalDataActivity extends AppCompatActivity implements View.OnCl
                 .trim();// 商户名称[虚拟网店中文名称]-merchants_name
 
         if (merchants_name.equals("")) {
-            Toast.makeText(this, "请输入[商户名称]", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "请设点击[所在的区、县]进行设置", Toast.LENGTH_SHORT).show();
             return;
         }
         if (province.equals("") || city.equals("")) {
@@ -258,7 +260,7 @@ public class PersonalDataActivity extends AppCompatActivity implements View.OnCl
                 if ("执行成功".equals(st)) {
                     // chaoZuoSql.qingkong_user_data();// 清空数据
                     // chaoZuoSql.zeng_user_data(phone2, password2);// 增加数据
-                    Toast.makeText(PersonalDataActivity.this, "个人资料上传成功", 1)
+                    Toast.makeText(PersonalDataActivity.this, "个人资料上传成功", Toast.LENGTH_SHORT)
                             .show();
                     // intent_you(AuditActivityA.class);
                 }

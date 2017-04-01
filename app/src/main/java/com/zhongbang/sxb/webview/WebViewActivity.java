@@ -53,8 +53,9 @@ public class WebViewActivity extends AppCompatActivity implements View.OnClickLi
         mTitle = (TextView) findViewById(R.id.textView3);
         mWv = (WebView) findViewById(R.id.webView2);
         mImg_load = (ImageView) findViewById(R.id.image_load);
-        mRel_loading = (RelativeLayout) findViewById(R.id.relativeLayout1);
+        mRel_loading = (RelativeLayout) findViewById(R.id.rl_load);
     }
+
     /**
      * 启动动画
      */
@@ -62,6 +63,7 @@ public class WebViewActivity extends AppCompatActivity implements View.OnClickLi
         mDrawable = (AnimationDrawable) mImg_load.getDrawable();
         mDrawable.start();
     }
+
     private void setWebView() {
         WebSettings settings = mWv.getSettings();
         settings.setCacheMode(WebSettings.LOAD_DEFAULT);
@@ -80,16 +82,15 @@ public class WebViewActivity extends AppCompatActivity implements View.OnClickLi
         mWv.setWebChromeClient(new MyWebChromeClient());// 监测webview加载情况
         mWv.setWebViewClient(new MyWebViewClient()); // 设置Web视图,只能在设定的布局范围内跳转
         mWv.loadUrl(mUrl);// 加载url网站
-        Log.e("=====",mUrl);
     }
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.imageView1:
-                if(mWv.canGoBack()){
+                if (mWv.canGoBack()) {
                     mWv.goBack();
-                }else{
+                } else {
                     finish();
                 }
                 break;
@@ -99,30 +100,30 @@ public class WebViewActivity extends AppCompatActivity implements View.OnClickLi
     class MyWebViewClient extends WebViewClient {
         @Override
         public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
-            view.loadUrl(mUrl);
             return super.shouldOverrideUrlLoading(view, request);
         }
     }
+
     class MyWebChromeClient extends WebChromeClient {
         @Override
         public void onProgressChanged(WebView view, final int newProgress) {
             // TODO Auto-generated method stub
             if (newProgress == 100) {
-                mWv.getSettings().setBlockNetworkImage(false);
-                mDrawable.stop();
-                mRel_loading.setVisibility(View.GONE);
+                // 启用子线程更新UI控件
+                new Thread() {
+                    public void run() {
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                mWv.getSettings().setBlockNetworkImage(false);
+                                mDrawable.stop();
+                                mRel_loading.setVisibility(View.GONE);
+                                mText.setText(newProgress + "%");
+                            }
+                        });
+                    }
+                }.start();
             }
-            // 启用子线程更新UI控件
-            new Thread() {
-                public void run() {
-                    runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            mText.setText(newProgress + "%");
-                        }
-                    });
-                }
-            }.start();
         }
     }
 }

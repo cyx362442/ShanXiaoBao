@@ -187,7 +187,7 @@ public class MyManagerActivity extends AppCompatActivity {
             jine.setText(zhangdan_hold.get(position).real_otain);
             time.setText(zhangdan_hold.get(position).time1);
             stata.setText(zhangdan_hold.get(position).state);
-            if (position == num * 10 - 1) {
+            if (position == num * 10 +5) {
                 num++;
                 inntdata();
             }

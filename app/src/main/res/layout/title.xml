@@ -5,9 +5,8 @@
     android:background="@color/gray_back"
     android:orientation="vertical" >
     <RelativeLayout
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     android:layout_height="fill_parent"
-    android:background="@color/title_color"
     >
     
 	<TextView 
@@ -22,6 +21,8 @@
     	android:layout_alignTop="@+id/btn_back"
     	android:textSize="20sp"
     	android:textColor="@color/white"
+		android:background="@color/yellowLand"
+		android:text="请选择当前城市"
     	/>
 	<Button 
 	    android:id="@+id/btn_back"

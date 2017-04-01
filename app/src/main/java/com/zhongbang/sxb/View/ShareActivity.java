@@ -43,7 +43,7 @@ public class ShareActivity extends AppCompatActivity implements View.OnClickList
     String sharecontent;
     private Tencent mTencent;
     private String name;
-    private String url = InterfaceUrl.interface_url + "/saoyisao/index.html";
+    private String url = InterfaceUrl.url + "/saoyisao/index.html";
     String tt = "闪销宝";
     private Bitmap thumb;
     @Override
@@ -57,7 +57,7 @@ public class ShareActivity extends AppCompatActivity implements View.OnClickList
         SharedPreferences sp = getSharedPreferences("users", MODE_PRIVATE);
         phone = sp.getString("name", "");
         http_read_name(phone);
-        url = InterfaceUrl.interface_url + "/saoyisao/index.html?user=" + phone;
+        url = InterfaceUrl.url + "/saoyisao/index.html?user=" + phone;
         initUI();
     }
 
@@ -168,7 +168,7 @@ public class ShareActivity extends AppCompatActivity implements View.OnClickList
         params.putString(QzoneShare.SHARE_TO_QQ_SUMMARY, sharecontent);
         params.putString(QzoneShare.SHARE_TO_QQ_TARGET_URL, url);
         ArrayList<String> imageUrls = new ArrayList();
-        imageUrls.add(InterfaceUrl.interface_url + "/fx.png");
+        imageUrls.add(InterfaceUrl.url + "/fx.png");
         params.putStringArrayList(QzoneShare.SHARE_TO_QQ_IMAGE_URL, imageUrls);
         params.putInt(QzoneShare.SHARE_TO_QQ_EXT_INT,
                 QQShare.SHARE_TO_QQ_FLAG_QZONE_AUTO_OPEN);
@@ -209,7 +209,7 @@ public class ShareActivity extends AppCompatActivity implements View.OnClickList
         HashMap<String, String> HashMap_post = new HashMap<String, String>();
         HashMap_post.put("username", phone);// 此时这里就是要传的网页上对应的参数name的值
 		/* 使用POST请求 */
-        DownHTTP.postVolley(InterfaceUrl.interface_url
+        DownHTTP.postVolley(InterfaceUrl.url
                         + "/app/user_data_return.aspx", HashMap_post,
                 new VolleyResultListener() {
 

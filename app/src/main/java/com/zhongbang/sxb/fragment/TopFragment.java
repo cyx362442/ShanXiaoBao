@@ -118,6 +118,7 @@ public class TopFragment extends Fragment {
             case R.id.tv_location:
                 mIntent = new Intent(getActivity(), CitySelect01Activity.class);
                 mIntent.putExtra("city", city);
+                mIntent.putExtra("from","location");
                 startActivityForResult(mIntent, 2);
                 break;
             case R.id.tv_share:

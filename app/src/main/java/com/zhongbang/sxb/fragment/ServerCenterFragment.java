@@ -10,8 +10,10 @@ import android.view.ViewGroup;
 
 import com.zhongbang.sxb.R;
 import com.zhongbang.sxb.colleciton.CollectionsActivity;
+import com.zhongbang.sxb.colleciton.WebView_PayActivity;
 import com.zhongbang.sxb.managercenter.MyManagerActivity;
 import com.zhongbang.sxb.webview.Link2Activity;
+import com.zhongbang.sxb.webview.WebViewActivity;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -39,7 +41,7 @@ public class ServerCenterFragment extends Fragment implements View.OnClickListen
         switch (v.getId()){
             case R.id.img_jiqiren:
                 String webUrl="http://chinazbhf.com:8081/SHXBWD/mj/goods.html?category=robot";
-                Intent intent = new Intent(getActivity(), Link2Activity.class);
+                Intent intent = new Intent(getActivity(), WebViewActivity.class);
                 intent.putExtra("title","机器人系统");
                 intent.putExtra("url",webUrl);
                 startActivity(intent);

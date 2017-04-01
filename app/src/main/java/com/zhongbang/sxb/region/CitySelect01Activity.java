@@ -7,6 +7,7 @@ import android.graphics.Color;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -38,6 +39,8 @@ public class CitySelect01Activity extends AppCompatActivity implements View.OnCl
 
     private City city;
     int last, current;
+    private String mFrom;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,9 +53,7 @@ public class CitySelect01Activity extends AppCompatActivity implements View.OnCl
         city = new City();
         Intent in = getIntent();
         city = in.getParcelableExtra("city");
-
-
-
+        mFrom = in.getStringExtra("from");
         for (int i = 0; i < tvs.length; i++) {
             tvs[i] = (TextView) findViewById(ids[i]);
             tvs[i].setOnClickListener(this);
@@ -154,7 +155,11 @@ public class CitySelect01Activity extends AppCompatActivity implements View.OnCl
                     city.setCityCode("");
                     city.setDistrictCode("");
                     tvs[1].setText("市");
-                    tvs[2].setText("区");
+                    if(TextUtils.isEmpty(mFrom)||!mFrom.equals("location")){
+                        tvs[2].setText("区");
+                    }else{
+                        tvs[2].setText("…");
+                    }
                 }
 
                 current = 1;
@@ -168,14 +173,21 @@ public class CitySelect01Activity extends AppCompatActivity implements View.OnCl
                     city.setRegionId(regions.get(arg2).getId());
                     city.setCityCode(regions.get(arg2).getId());
                     city.setDistrictCode("");
-                    tvs[2].setText("区");
+                    if(TextUtils.isEmpty(mFrom)||!mFrom.equals("location")){
+                        tvs[2].setText("区");
+                    }else{
+                        tvs[2].setText("…");
+                    }
                 }
 
-                //点击城市列表中的城市就初始化区县列表
-                util.initDistricts(city.getCityCode());
-                current = 2;
+                /**点击城市列表中的城市就初始化区县列表*/
+                if(TextUtils.isEmpty(mFrom)||!mFrom.equals("location")){
+                    util.initDistricts(city.getCityCode());
+                    current = 2;
+                }
 
-            } else if (current == DISTRICT) {
+            }
+            else if (current == DISTRICT) {
                 current = 2;
                 city.setDistrictCode(regions.get(arg2).getId());
                 city.setRegionId(regions.get(arg2).getId());

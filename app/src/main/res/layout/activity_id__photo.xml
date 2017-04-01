@@ -232,7 +232,7 @@
                             android:layout_centerHorizontal="true"
                             android:layout_centerVertical="true"
                             android:gravity="center"
-                            android:text="我的小微商铺[选填]"
+                            android:text="营业执照(开通经销商需上传)"
                             android:textColor="#000000"
                             android:textSize="10dp" />
                     </RelativeLayout>

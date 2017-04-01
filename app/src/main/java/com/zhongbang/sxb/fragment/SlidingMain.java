@@ -28,28 +28,20 @@ import static com.tencent.open.utils.Global.getSharedPreferences;
 public class SlidingMain extends Fragment {
     private final String url="http://chinazbhf.com/img/";
     private String phone;
-    private String[]imgUrl;
-
     /**ViewPager控件对象 [成员变量]注意引包import android.support.v4.view.ViewPager*/
     private ViewPager pager;
     /**将所有的图片控件都添加到数组里面[成员变量]*/
     private int[] image = new int[]{R.id.imageView_xia_tu1,
             R.id.imageView_xia_tu2,R.id.imageView_xia_tu3,R.id.imageView_xia_tu4
             ,R.id.imageView_xia_tu5,R.id.imageView_xia_tu6};
-//    private String[]imgUrl={
-////            "http://chinazbhf.com:8081/sxb/attached/rotation/1.jpg",
-////            "http://chinazbjt.com:8081/sxb/attached/rotation/2.jpg",
-////            "http://chinazbjt.com:8081/sxb/attached/rotation/3.jpg",
-////            "http://chinazbjt.com:8081/sxb/attached/rotation/4.jpg",
-////            "http://chinazbjt.com:8081/sxb/attached/rotation/5.jpg",
-////            "http://chinazbjt.com:8081/sxb/attached/rotation/6.jpg"
-//            url+phone+"1.jpg",
-//            url+phone+"2.jpg",
-//            url+phone+"3.jpg",
-//            url+phone+"4.jpg",
-//            url+phone+"5.jpg",
-//            url+phone+"6.jpg",
-//            };
+    private String[]imgUrl={
+            "http://chinazbhf.com:8081/sxb/attached/rotation/1.jpg",
+            "http://chinazbhf.com:8081/sxb/attached/rotation/2.jpg",
+            "http://chinazbhf.com:8081/sxb/attached/rotation/3.jpg",
+            "http://chinazbhf.com:8081/sxb/attached/rotation/4.jpg",
+            "http://chinazbhf.com:8081/sxb/attached/rotation/5.jpg",
+            "http://chinazbhf.com:8081/sxb/attached/rotation/6.jpg"
+            };
     /**获取布局对象*/
     private View view;
     /**线程对象*/
@@ -64,14 +56,6 @@ public class SlidingMain extends Fragment {
         super.onCreate(savedInstanceState);
         SharedPreferences sp = getContext().getSharedPreferences("users", Context.MODE_PRIVATE);
         phone = sp.getString("name", "");
-        imgUrl=new String[]{
-               url+phone+"1.jpg",
-                url+phone+"2.jpg",
-                url+phone+"3.jpg",
-                url+phone+"4.jpg",
-                url+phone+"5.jpg",
-                url+phone+"6.jpg"
-        };
     }
 
     @Override
