@@ -75,9 +75,9 @@ public class WebViewActivity extends AppCompatActivity implements View.OnClickLi
         settings.setAllowFileAccess(true);
         settings.setRenderPriority(WebSettings.RenderPriority.HIGH);// 渲染优先级升级，提高加载速度
         // 设置支持缩放
-        settings.setBuiltInZoomControls(true);
-        //加载第三方网页时自适应手机屏幕分辨率
-        settings.setUseWideViewPort(true);
+//        settings.setBuiltInZoomControls(true);
+//        //加载第三方网页时自适应手机屏幕分辨率
+//        settings.setUseWideViewPort(true);
         settings.setLoadWithOverviewMode(true);
         mWv.setWebChromeClient(new MyWebChromeClient());// 监测webview加载情况
         mWv.setWebViewClient(new MyWebViewClient()); // 设置Web视图,只能在设定的布局范围内跳转

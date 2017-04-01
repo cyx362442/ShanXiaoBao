@@ -22,6 +22,7 @@ import com.zhongbang.sxb.bean.VersionContents;
 import com.zhongbang.sxb.colleciton.WebView_PayActivity;
 import com.zhongbang.sxb.httputils.DownHTTP;
 import com.zhongbang.sxb.httputils.VolleyResultListener;
+import com.zhongbang.sxb.webview.WebViewActivity;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -133,7 +134,7 @@ public class HelperActivity extends AppCompatActivity {
     }
 
     private void toWebView() {
-        mIntent = new Intent(this, WebView_PayActivity.class);
+        mIntent = new Intent(this, WebViewActivity.class);
         mIntent.putExtra("title",title);
         mIntent.putExtra("url",url);
         startActivity(mIntent);

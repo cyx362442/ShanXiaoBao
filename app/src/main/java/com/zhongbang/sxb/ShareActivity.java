@@ -136,7 +136,7 @@ public class ShareActivity extends AppCompatActivity implements View.OnClickList
     private void shareQQ() {
         // TODO Auto-generated method stub
         final Bundle params = new Bundle();
-        params.putString(QQShare.SHARE_TO_QQ_TITLE, "闪销宝-全球领先无卡支付创业平台");//分享标题
+        params.putString(QQShare.SHARE_TO_QQ_TITLE, "闪销宝众享购物平台");//分享标题
         //分享图标
         params.putString(QQShare.SHARE_TO_QQ_IMAGE_URL,"http://7xpj8w.com1.z0.glb.clouddn.com/108.png");
         params.putString(QQShare.SHARE_TO_QQ_TARGET_URL, url+mPhone);//分享网址
@@ -199,7 +199,7 @@ public class ShareActivity extends AppCompatActivity implements View.OnClickList
 
         // 用WXTextObject对象初始化一个WXMediaMessage对象
         WXMediaMessage msg = new WXMediaMessage(webpage);
-        msg.title="闪销宝-全球领先无卡支付创业平台";//分享的标题
+        msg.title="闪销宝众享购物平台";//分享的标题
         msg.description="闪销宝众享购物平台=消费者+商家+合伙人=边消费边赚钱+协同创新+协同致富";
         //替换自己工程的图片做为图标，注意：图片不能太大，否则分享失败！
         Bitmap thumb = BitmapFactory.decodeResource(getResources(), R.mipmap.logo80);
