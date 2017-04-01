@@ -36,7 +36,7 @@ import butterknife.OnClick;
 public class HelperActivity extends AppCompatActivity {
     private String url;
     private String title;
-    private final String currentVersion="1.00";
+    private final String currentVersion="1.2";
 
     @Bind(R.id.img_head)
     ImageView mImgHead;

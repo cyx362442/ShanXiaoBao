@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private final String orderUrl="http://chinazbhf.com:8081/SHXBWD/wd.do";
     private final String orderUrl_search="http://chinazbhf.com:8081/SHXBWD/mjgl/sy.html?id=";
 
-    private final String currentVersion="1.00";
+    private final String currentVersion="1.2";
     private HashMap<String, String> mPost;
     private boolean mIsLoad;
     private String mName;
@@ -93,6 +93,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             public void onResponse(String response) {
                 Gson gson = new Gson();
                 VersionContents[] contentses = gson.fromJson(response, VersionContents[].class);
+                Log.e("version====",contentses[0].system_version);
                 if(!contentses[0].system_version.equals(currentVersion)){
                     showDialog_version(contentses[0].author_contact);
                 }else{

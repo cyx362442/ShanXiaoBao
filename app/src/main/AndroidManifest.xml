@@ -117,8 +117,6 @@
             android:value="FrIdHRAp4S5zwrz0x4VwW5kbOz3DQIgx"/> <!-- http://lbsyun.baidu.com/apiconsole/key -->
         <activity android:name=".ShareActivity">
         </activity>
-        <activity android:name=".Share3Activity">
-        </activity>
     </application>
 
 </manifest>
