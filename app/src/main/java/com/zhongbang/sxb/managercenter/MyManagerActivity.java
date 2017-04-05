@@ -75,7 +75,6 @@ public class MyManagerActivity extends AppCompatActivity {
     private RelativeLayout mRel_loading;
     private ImageView mImg_load;
     private String urlPost = " http://chinazbhf.com:8081/SHXB/POST";
-    //    private String urlPost="http://chinazbjt.cn:8080/JFBHB/POST";
     String pager_num = "0";
     private HashMap<String, String> HashMap_post = new HashMap<String, String>();
     private ArrayList<Zhangdan> zhangdan_hold = new ArrayList<Zhangdan>();

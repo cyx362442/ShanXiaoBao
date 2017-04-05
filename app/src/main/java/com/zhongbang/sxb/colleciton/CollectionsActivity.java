@@ -100,7 +100,7 @@ public class CollectionsActivity extends AppCompatActivity implements View.OnCli
                                 if(channel.equals("支付宝")){//支付宝
                                     toPay(zUrl+phone+"&je="+money,channel,money);
                                 }else if(userAudit.equals("已审核")&&channel.equals("微信")){
-                                    toPay(wUrl+phone+"&zfjeall"+money,channel,money);
+                                    toPay(wUrl+phone+"&je="+money,channel,money);
                                 }else if(userAudit.equals("已审核")&&channel.equals("中国银联")){
                                     toPay(kUrl+phone+"&je="+money,channel,money);
                                 }else{
@@ -225,6 +225,7 @@ public class CollectionsActivity extends AppCompatActivity implements View.OnCli
             Intent intent = new Intent(this,WebView_PayActivity.class);
             intent.putExtra("url", url);
             intent.putExtra("chanel", chanel);
+            Log.e("url===",url);
             startActivity(intent);
         }
     }

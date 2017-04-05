@@ -74,7 +74,7 @@ public class GuideActivity extends AppCompatActivity {
         super.onStart();
         scheduledExecutorService = Executors.newSingleThreadScheduledExecutor();
         // 当Activity显示出来后，每两秒钟切换一次图片显示
-        scheduledExecutorService.scheduleAtFixedRate(new ScrollTask(),3, 10, TimeUnit.SECONDS);
+        scheduledExecutorService.scheduleAtFixedRate(new ScrollTask(),2, 3, TimeUnit.SECONDS);
     }
     private class ScrollTask implements Runnable {
         public void run() {
