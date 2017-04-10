@@ -39,7 +39,7 @@ public class ShareActivity extends AppCompatActivity implements View.OnClickList
     private ImageView mImg_return;
     private ImageView mQrImgImageView;
     public static Tencent mTencent;
-    private final String WX_APP_ID = "wxaeb66690ba3e7d95";
+    private final String WX_APP_ID = "wxa812747aa7e71411";
     private IWXAPI api;
     // 构造一个Req
     private SendMessageToWX.Req req = new SendMessageToWX.Req();
