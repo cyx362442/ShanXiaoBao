@@ -87,8 +87,6 @@ public class Link2Activity extends AppCompatActivity implements View.OnClickList
         setContentView(R.layout.activity_link2);
         SharedPreferences sp = getSharedPreferences("users", MODE_PRIVATE);
         mPhone = sp.getString("name", "");
-
-
         image_rotating = (ImageView) findViewById(R.id.image_load);
         layout_rotating = findViewById(R.id.rl_load);
         startAnim();

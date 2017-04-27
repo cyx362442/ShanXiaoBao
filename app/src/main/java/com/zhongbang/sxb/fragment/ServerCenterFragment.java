@@ -41,7 +41,7 @@ public class ServerCenterFragment extends Fragment implements View.OnClickListen
         switch (v.getId()){
             case R.id.img_jiqiren:
                 String webUrl="http://chinazbhf.com:8081/SHXBWD/mj/goods.html?category=robot";
-                Intent intent = new Intent(getActivity(), WebViewActivity.class);
+                Intent intent = new Intent(getActivity(), Link2Activity.class);
                 intent.putExtra("title","机器人系统");
                 intent.putExtra("url",webUrl);
                 startActivity(intent);

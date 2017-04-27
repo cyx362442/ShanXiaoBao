@@ -109,7 +109,7 @@ public class CenterFragment extends Fragment implements View.OnClickListener {
             startActivity(mIntent);
             return;
         }
-        Intent intent = new Intent(getActivity(), WebViewActivity.class);
+        Intent intent = new Intent(getActivity(), Link2Activity.class);
         intent.putExtra("title",title);
         intent.putExtra("url",webUrl);
         startActivity(intent);

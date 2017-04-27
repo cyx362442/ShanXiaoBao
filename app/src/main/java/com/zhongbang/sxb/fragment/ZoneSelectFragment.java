@@ -91,7 +91,7 @@ public class ZoneSelectFragment extends Fragment implements AdapterView.OnItemCl
         toWebView(district,urlCityZone+cityZone);
     }
     private void toWebView(String contents,String url) {
-        Intent intent = new Intent(getActivity(), WebViewActivity.class);
+        Intent intent = new Intent(getActivity(), Link2Activity.class);
         intent.putExtra("title", contents);
         intent.putExtra("url",url);
         startActivity(intent);

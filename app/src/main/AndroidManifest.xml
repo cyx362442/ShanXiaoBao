@@ -101,7 +101,8 @@
         </activity>
         <activity android:name=".webview.Link2Activity">
         </activity>
-        <activity android:name=".View.ShareActivity">
+        <activity android:name=".View.ShareActivity"
+                  android:theme="@android:style/Theme.Translucent.NoTitleBar">
         </activity>
         <activity android:name=".HelperActivity">
         </activity>

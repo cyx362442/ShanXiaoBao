@@ -1,6 +1,6 @@
 package com.zhongbang.sxb.View;
 
-import android.content.Context;
+import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
@@ -36,8 +36,8 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class ShareActivity extends AppCompatActivity implements View.OnClickListener {
-    private static final String WX_APP_ID = "wxcc14276107059709";
+public class ShareActivity extends Activity implements View.OnClickListener {
+    private static final String WX_APP_ID = "wxa812747aa7e71411";
     private IWXAPI wxApi;
     String phone = "";// 手机号码[账号]-phone
     String sharecontent;
@@ -50,7 +50,7 @@ public class ShareActivity extends AppCompatActivity implements View.OnClickList
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_share);
-        mTencent = Tencent.createInstance("1104928364",
+        mTencent = Tencent.createInstance("1106056864",
                 this.getApplicationContext());
         wxApi = WXAPIFactory.createWXAPI(this, WX_APP_ID);
         wxApi.registerApp(WX_APP_ID);
@@ -155,7 +155,7 @@ public class ShareActivity extends AppCompatActivity implements View.OnClickList
 //
 //		}
         params.putString(QQShare.SHARE_TO_QQ_IMAGE_URL,
-                "http://7xtejr.com1.z0.glb.clouddn.com/logo_qmws.png");
+                "http://7xpj8w.com1.z0.glb.clouddn.com/108.png");
         mTencent.shareToQQ(ShareActivity.this, params, new BaseUiListener());
     }
 
@@ -249,9 +249,9 @@ public class ShareActivity extends AppCompatActivity implements View.OnClickList
         if (str != null) {
 //			sharecontent = name + getIntent().getStringExtra("contents");
             url =str;
-            sharecontent=name+"邀请您一起来手机免费开店赚钱，免费领取手机POS机，边分享边赚钱，请点击安装中国银联渠道服务全民微商互联网金融+微商平台";
+            sharecontent=name+"闪销宝众享购物平台=消费者+商家+合伙人=边消费边赚钱+协同创新+协同致富";
             if(name==null||name.equals("")){
-                tt="环球微商";
+                tt="闪销宝";
             }else{
 //				tt = name + getIntent().getStringExtra("tt");
                 tt=name;

@@ -83,7 +83,6 @@ public class ShareActivity extends AppCompatActivity implements View.OnClickList
                 Bitmap logo= BitmapFactory.decodeResource(this.getResources(), R.mipmap.logo80);//中间logo
                 Bitmap qrCodeBitmap = EncodingHandler.createQRCode(contentString, 350,logo);
                 mQrImgImageView.setImageBitmap(qrCodeBitmap);
-
             } catch (WriteAbortedException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
