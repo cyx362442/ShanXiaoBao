@@ -137,7 +137,7 @@ public class ShareActivity extends AppCompatActivity implements View.OnClickList
         final Bundle params = new Bundle();
         params.putString(QQShare.SHARE_TO_QQ_TITLE, "闪销宝众享购物平台");//分享标题
         //分享图标
-        params.putString(QQShare.SHARE_TO_QQ_IMAGE_URL,"http://7xpj8w.com1.z0.glb.clouddn.com/108.png");
+        params.putString(QQShare.SHARE_TO_QQ_IMAGE_URL,"http://od27wgfkz.bkt.clouddn.com/shanxiaobao.png");
         params.putString(QQShare.SHARE_TO_QQ_TARGET_URL, url+mPhone);//分享网址
         params.putString(QQShare.SHARE_TO_QQ_SUMMARY, "闪销宝众享购物平台=消费者+商家+合伙人=边消费边赚钱+协同创新+协同致富");//分享内容
         doShareToQQ(params);

@@ -6,7 +6,6 @@ import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MotionEvent;
@@ -120,14 +119,6 @@ public class ShareActivity extends Activity implements View.OnClickListener {
         WXMediaMessage msg = new WXMediaMessage(webpage);
         msg.title = tt;
         msg.description = sharecontent;
-        // 这里替换一张自己工程里的图片资源
-//		if (tt.equals("全民微商")) {
-//			thumb = BitmapFactory.decodeResource(getResources(),
-//					R.drawable.logo2);
-//		} else {
-//			thumb = BitmapFactory.decodeResource(getResources(),
-//					R.drawable.ic_launcher);
-//		}
         thumb= BitmapFactory.decodeResource(getResources(), R.mipmap.logo80);//注意图片不能太大，否则无法分享
         msg.setThumbImage(thumb);
         SendMessageToWX.Req req = new SendMessageToWX.Req();
@@ -145,17 +136,8 @@ public class ShareActivity extends Activity implements View.OnClickListener {
         params.putString(QQShare.SHARE_TO_QQ_TITLE, tt);
         params.putString(QQShare.SHARE_TO_QQ_SUMMARY, sharecontent);
         params.putString(QQShare.SHARE_TO_QQ_TARGET_URL, url);
-//		if (tt.equals("全民微店")) {
-//			params.putString(QQShare.SHARE_TO_QQ_IMAGE_URL,
-//					InterfaceUrl.interface_url + "/fx.png");
-//
-//		} else {
-//			params.putString(QQShare.SHARE_TO_QQ_IMAGE_URL,
-//					InterfaceUrl.interface_url + "/logo.png");
-//
-//		}
         params.putString(QQShare.SHARE_TO_QQ_IMAGE_URL,
-                "http://7xpj8w.com1.z0.glb.clouddn.com/108.png");
+                "http://od27wgfkz.bkt.clouddn.com/shanxiaobao.png");
         mTencent.shareToQQ(ShareActivity.this, params, new BaseUiListener());
     }
 

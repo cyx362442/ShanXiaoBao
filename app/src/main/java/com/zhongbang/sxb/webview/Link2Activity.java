@@ -35,8 +35,8 @@ import com.zhongbang.sxb.R;
 import com.zhongbang.sxb.View.ShareActivity;
 
 public class Link2Activity extends AppCompatActivity implements View.OnClickListener {
-    private String urlWeb="http://chinazbhf.com:8081/SHXBWD/mjgl/sy.html?id=";
-
+//    private String urlWeb="http://chinazbhf.com:8081/SHXBWD/mjgl/sy.html?id=";
+    private String urlWeb;
     private ValueCallback<Uri> mUploadMessage;
     private final static int FILECHOOSER_RESULTCODE = 1;
     /** 进度条控件[成员变量] */
@@ -58,36 +58,16 @@ public class Link2Activity extends AppCompatActivity implements View.OnClickList
     RelativeLayout imageView1;
     RelativeLayout layout_exit;
 
-    View tishi;
-    IWXAPI wxApi;
     private String mPhone;
-
-    private void wechatShare(int flag) {
-        String url = "http://huanqiuzf.com:8080/YB/html/"
-                + mPhone + ".html";
-        WXWebpageObject webpage = new WXWebpageObject();
-        webpage.webpageUrl = url;
-        WXMediaMessage msg = new WXMediaMessage(webpage);
-        msg.title = "扫一扫,轻松付款";
-        msg.description = "请客户使用微信扫一扫付款";
-        // 这里替换一张自己工程里的图片资源
-        Bitmap thumb = BitmapFactory.decodeResource(getResources(),
-                R.mipmap.logo);
-        msg.setThumbImage(thumb);
-        SendMessageToWX.Req req = new SendMessageToWX.Req();
-        req.transaction = String.valueOf(System.currentTimeMillis());
-        req.message = msg;
-        req.scene = flag == 0 ? SendMessageToWX.Req.WXSceneSession
-                : SendMessageToWX.Req.WXSceneTimeline;
-        wxApi.sendReq(req);
-    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_link2);
         SharedPreferences sp = getSharedPreferences("users", MODE_PRIVATE);
         mPhone = sp.getString("name", "");
-
+        Intent intent = getIntent();
+        urlWeb = intent.getStringExtra("url");
+        title = intent.getStringExtra("title");
 
         image_rotating = (ImageView) findViewById(R.id.image_load);
         layout_rotating = findViewById(R.id.rl_load);
@@ -133,20 +113,6 @@ public class Link2Activity extends AppCompatActivity implements View.OnClickList
                                         String acceptType, String capture) {
                 mUploadMessage = uploadMsg;
                 rel_setphoto_ref.setVisibility(View.VISIBLE);
-
-            }
-
-            @SuppressWarnings("unused")
-            public void openFileChooser(ValueCallback<Uri> uploadMsg,
-                                        String acceptType) {
-                mUploadMessage = uploadMsg;
-                rel_setphoto_ref.setVisibility(View.VISIBLE);
-            }
-
-            @SuppressWarnings("unused")
-            public void openFileChooser(ValueCallback<Uri> uploadMsg) {
-                mUploadMessage = uploadMsg;
-                rel_setphoto_ref.setVisibility(View.VISIBLE);
             }
             @Override
             public boolean onJsAlert(WebView view, String url, String message,
@@ -173,19 +139,8 @@ public class Link2Activity extends AppCompatActivity implements View.OnClickList
         // 设置字体
         // 设置链接不跳出webview
         mWebView.setWebViewClient(new MyWebView());
-        Intent get_intent = getIntent();// 建立取传来消息的对象
-//        url = get_intent.getStringExtra("url");
-        String title = get_intent.getStringExtra("title");
         mWebView.loadUrl(urlWeb+mPhone);
-//        title = get_intent.getStringExtra("title");
         text_title.setText(title);
-        // if (title.equals("云商微店")) {
-        // text_wodeweidian.setVisibility(View.VISIBLE);
-        // tishi.setVisibility(View.VISIBLE);
-        // }
-//        if (this.title.equals("123")) {
-//            layout_exit.setVisibility(View.GONE);
-//        }
     }
 
     @Override
@@ -196,7 +151,6 @@ public class Link2Activity extends AppCompatActivity implements View.OnClickList
                 break;
         }
     }
-
     class MyWebView extends WebViewClient {
         @Override
         public boolean shouldOverrideUrlLoading(WebView view, String url) {
@@ -242,7 +196,7 @@ public class Link2Activity extends AppCompatActivity implements View.OnClickList
                     Intent intent = new Intent(Link2Activity.this,
                             ShareActivity.class);
                     intent.putExtra("url",
-                            "http://chinapxsh.com:8080/QMWDWD/mj/index.html?id="
+                            "http://chinazbhf.com:8081/SHXBWD/mj/index.html?id="
                                     + mPhone);
                     intent.putExtra("tt", "的微商店");
                     startActivity(intent);
@@ -252,7 +206,7 @@ public class Link2Activity extends AppCompatActivity implements View.OnClickList
                             ShareActivity.class);
                     String[] array = url.split("\\?id");
                     intent.putExtra("url",
-                            "http://chinapxsh.com:8080/QMWDWD/mj/spxq_gm.html?id"
+                            "http://chinazbhf.com:8081/SHXBWD/mj/spxq_gm.html?id"
                                     + array[1]);
                     intent.putExtra("tt", "的微商品");
                     startActivity(intent);
@@ -297,12 +251,6 @@ public class Link2Activity extends AppCompatActivity implements View.OnClickList
         }
         return super.onKeyDown(keyCode, event);
     }
-
-//    public void intent_you(Class<TheMainActivity> class1) {
-//        // TODO Auto-generated method stub
-//        startActivity(new Intent(this, class1));
-//        finish();
-//    }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode,
