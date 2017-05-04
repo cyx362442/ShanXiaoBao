@@ -29,7 +29,7 @@
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
                 android:layout_marginLeft="14dp"
-                android:text="O2O微信T+1"
+                android:text="O2O微信T+0"
                 android:textColor="#fb6801"
                 android:textSize="16dp" />
 
@@ -91,90 +91,6 @@
         android:id="@+id/TextView01"
         android:layout_width="match_parent"
         android:layout_height="10dp"
-        android:background="#f0f0f0" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:orientation="vertical" >
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:padding="3dp" >
-
-            <TextView
-                android:id="@+id/TextView08"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentTop="true"
-                android:layout_marginLeft="14dp"
-                android:text="O2O中国银联T+1总额"
-                android:textColor="#fb6801"
-                android:textSize="16dp" />
-
-            <TextView
-                android:id="@+id/text5_fenrun"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignLeft="@+id/TextView08"
-                android:layout_alignParentBottom="true"
-                android:layout_marginTop="3dp"
-                android:text="0.00"
-                android:textColor="#000"
-                android:textSize="16dp" />
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:padding="3dp" >
-
-            <TextView
-                android:id="@+id/TextView09"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentTop="true"
-                android:layout_marginLeft="14dp"
-                android:text="可结算金额"
-                android:textColor="#fb6801"
-                android:textSize="16dp" />
-
-            <TextView
-                android:id="@+id/text5_kejiesuan"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignLeft="@+id/TextView09"
-                android:layout_alignParentBottom="true"
-                android:layout_marginTop="3dp"
-                android:text="0.00"
-                android:textColor="#000"
-                android:textSize="16dp" />
-
-            <TextView
-                android:id="@+id/text5_jiesuan"
-                android:layout_width="50dp"
-                android:layout_height="30dp"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:layout_marginRight="22dp"
-                android:background="@drawable/wode"
-                android:gravity="center"
-                android:text="查询"
-                android:textColor="#000000"
-                android:textSize="15dp" />
-        </RelativeLayout>
-    </LinearLayout>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="10dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
         android:background="#f0f0f0" />
 
     <LinearLayout
@@ -254,7 +170,6 @@
                 android:textSize="15dp" />
         </RelativeLayout>
     </LinearLayout>
-
     <TextView
         android:id="@+id/textView9"
         android:layout_width="match_parent"
@@ -262,5 +177,86 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:background="#f0f0f0" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:orientation="vertical" >
 
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:padding="3dp" >
+
+            <TextView
+                android:id="@+id/TextView08"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="14dp"
+                android:text="O2O中国银联T+1总额"
+                android:textColor="#fb6801"
+                android:textSize="16dp" />
+
+            <TextView
+                android:id="@+id/text5_fenrun"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/TextView08"
+                android:layout_alignParentBottom="true"
+                android:layout_marginTop="3dp"
+                android:text="0.00"
+                android:textColor="#000"
+                android:textSize="16dp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:padding="3dp" >
+
+            <TextView
+                android:id="@+id/TextView09"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="14dp"
+                android:text="可结算金额"
+                android:textColor="#fb6801"
+                android:textSize="16dp" />
+
+            <TextView
+                android:id="@+id/text5_kejiesuan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/TextView09"
+                android:layout_alignParentBottom="true"
+                android:layout_marginTop="3dp"
+                android:text="0.00"
+                android:textColor="#000"
+                android:textSize="16dp" />
+
+            <TextView
+                android:id="@+id/text5_jiesuan"
+                android:layout_width="50dp"
+                android:layout_height="30dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="22dp"
+                android:background="@drawable/wode"
+                android:gravity="center"
+                android:text="查询"
+                android:textColor="#000000"
+                android:textSize="15dp" />
+        </RelativeLayout>
+    </LinearLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:background="#f0f0f0" />
 </LinearLayout>

@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.graphics.drawable.AnimationDrawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -24,10 +25,14 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.UnsupportedEncodingException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.HashMap;
 
 public class MyComeinActivity extends AppCompatActivity implements View.OnClickListener {
     private final String urlIncome="http://chinazbhf.com:8081/SHXB/POST";
+    private final String url="http://chinazbhf.com:8081/sxb/app/pay/incoming.app?username=";
 
     private AnimationDrawable mDrawable;
     private RelativeLayout mRel_loading;
@@ -65,6 +70,17 @@ public class MyComeinActivity extends AppCompatActivity implements View.OnClickL
         startAnim();
         initControl();
         http();
+        StringBuilder b = new StringBuilder(mPhone);
+        DownHTTP.getVolley(url + mPhone + "&sign=" + getMD5(b.reverse().toString()), new VolleyResultListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+            }
+            @Override
+            public void onResponse(String response) {
+                Log.e("========",response);
+            }
+        });
+
     }
     /**
      * 启动动画
@@ -200,5 +216,37 @@ public class MyComeinActivity extends AppCompatActivity implements View.OnClickL
         intent.putExtra("title", title);// 注意传过去的是String类型那么那边取值就必须根据类型来取值
         intent.setClass(this, WebView_PayActivity.class);// 这里如果放在事件被点击为什么会报错
         startActivity(intent);
+    }
+    public String getMD5(String info)
+    {
+        try
+        {
+            MessageDigest md5 = MessageDigest.getInstance("MD5");
+            md5.update(info.getBytes("UTF-8"));
+            byte[] encryption = md5.digest();
+
+            StringBuffer strBuf = new StringBuffer();
+            for (int i = 0; i < encryption.length; i++)
+            {
+                if (Integer.toHexString(0xff & encryption[i]).length() == 1)
+                {
+                    strBuf.append("0").append(Integer.toHexString(0xff & encryption[i]));
+                }
+                else
+                {
+                    strBuf.append(Integer.toHexString(0xff & encryption[i]));
+                }
+            }
+
+            return strBuf.toString();
+        }
+        catch (NoSuchAlgorithmException e)
+        {
+            return "";
+        }
+        catch (UnsupportedEncodingException e)
+        {
+            return "";
+        }
     }
 }

@@ -35,7 +35,6 @@ import com.zhongbang.sxb.R;
 import com.zhongbang.sxb.View.ShareActivity;
 
 public class Link2Activity extends AppCompatActivity implements View.OnClickListener {
-//    private String urlWeb="http://chinazbhf.com:8081/SHXBWD/mjgl/sy.html?id=";
     private String urlWeb;
     private ValueCallback<Uri> mUploadMessage;
     private final static int FILECHOOSER_RESULTCODE = 1;
@@ -139,7 +138,7 @@ public class Link2Activity extends AppCompatActivity implements View.OnClickList
         // 设置字体
         // 设置链接不跳出webview
         mWebView.setWebViewClient(new MyWebView());
-        mWebView.loadUrl(urlWeb+mPhone);
+        mWebView.loadUrl(urlWeb);
         text_title.setText(title);
     }
 
