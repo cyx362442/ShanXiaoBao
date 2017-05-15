@@ -309,7 +309,7 @@
                         android:layout_alignParentLeft="true"
                         android:layout_alignParentTop="true"
                         android:layout_marginLeft="14dp"
-                        android:text="可结算金额"
+                        android:text="未结算分润金额"
                         android:textColor="#fb6801"
                         android:textSize="16dp" />
 
@@ -328,6 +328,7 @@
                         android:id="@+id/text1_jiesuan"
                         android:layout_width="50dp"
                         android:layout_height="30dp"
+                        android:visibility="gone"
                         android:layout_alignParentRight="true"
                         android:layout_centerVertical="true"
                         android:layout_marginRight="22dp"

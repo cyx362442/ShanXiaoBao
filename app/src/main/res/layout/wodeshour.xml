@@ -29,11 +29,12 @@
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
                 android:layout_marginLeft="14dp"
-                android:text="O2O微信T+0"
+                android:text="O2O微信T+0总额"
                 android:textColor="#fb6801"
                 android:textSize="16dp" />
 
             <TextView
+                android:id="@+id/tv_totalWXPay"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignLeft="@+id/textView11"
@@ -58,11 +59,12 @@
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
                 android:layout_marginLeft="14dp"
-                android:text="可结算金额"
+                android:text="(O2O微信T+0)未结算金额"
                 android:textColor="#fb6801"
                 android:textSize="16dp" />
 
             <TextView
+                android:id="@+id/tv_unsettledWxpay"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignLeft="@+id/textView10"
@@ -141,7 +143,7 @@
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
                 android:layout_marginLeft="14dp"
-                android:text="可结算金额"
+                android:text="O2O支付宝T+0(未结算金额)"
                 android:textColor="#fb6801"
                 android:textSize="16dp" />
 
@@ -165,7 +167,7 @@
                 android:layout_marginRight="22dp"
                 android:background="@drawable/wode"
                 android:gravity="center"
-                android:text="结算"
+                android:text="查询"
                 android:textColor="#000000"
                 android:textSize="15dp" />
         </RelativeLayout>
@@ -224,7 +226,7 @@
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
                 android:layout_marginLeft="14dp"
-                android:text="可结算金额"
+                android:text="O2O中国银联T+1(未结算金额)"
                 android:textColor="#fb6801"
                 android:textSize="16dp" />
 

@@ -106,7 +106,7 @@ public class MyEarnings extends AppCompatActivity {
             mTv3.setText("昨日机器人系统消费额");
             mTv4.setText("昨日机器人系统消费收益");
             mLinearLayout3.setVisibility(View.INVISIBLE);
-            DownHTTP.postVolley(urlType1, map, new VolleyResultListener() {
+            DownHTTP.postVolley(urlType1+username, map, new VolleyResultListener() {
                 @Override
                 public void onErrorResponse(VolleyError error) {
                     stopAmin();
@@ -134,7 +134,7 @@ public class MyEarnings extends AppCompatActivity {
             mTv4.setText("昨日机器人系统消费收益");
             mTv5.setText("昨日总收款金额");
             mTv6.setText("昨日收款收益");
-            DownHTTP.postVolley(urlType2, map, new VolleyResultListener() {
+            DownHTTP.postVolley(urlType2+username, map, new VolleyResultListener() {
                 @Override
                 public void onErrorResponse(VolleyError error) {
                     stopAmin();
@@ -163,7 +163,7 @@ public class MyEarnings extends AppCompatActivity {
             mTv5.setText("昨日区域总收款金额");
             mTv6.setText("昨日区域收款收益");
             mLinearLayout3.setVisibility(View.VISIBLE);
-            DownHTTP.postVolley(urlType3, map, new VolleyResultListener() {
+            DownHTTP.postVolley(urlType3+username, map, new VolleyResultListener() {
                 @Override
                 public void onErrorResponse(VolleyError error) {
                     stopAmin();
